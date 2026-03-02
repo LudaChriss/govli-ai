@@ -1,0 +1,2 @@
+-- Empty placeholder for FOIA tables migration
+-- To be implemented during Phase 1
