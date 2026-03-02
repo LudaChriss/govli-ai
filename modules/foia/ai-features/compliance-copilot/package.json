@@ -1,0 +1,11 @@
+{
+  "name": "@govli/foia-compliance-copilot",
+  "version": "0.1.0",
+  "private": true,
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "typecheck": "tsc --noEmit"
+  }
+}
