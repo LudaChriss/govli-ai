@@ -1,0 +1,48 @@
+{{agency_name}}
+{{#if agency_address}}{{agency_address}}{{/if}}
+
+{{requester_name}}
+{{requester_email}}
+
+Re: Freedom of Information Act Request - {{request_subject}}
+Request ID: {{request_id}}
+
+Dear {{requester_name}},
+
+This letter responds to your Freedom of Information Act (FOIA) request dated {{received_at}}, in which you requested {{request_subject}}.
+
+DETERMINATION
+
+We have conducted a thorough search for records responsive to your request. After an extensive review of our files, we have determined that no records responsive to your request exist or can be located.
+
+SEARCH CONDUCTED
+
+Our search included the following:
+{{#if notes}}
+{{notes}}
+{{else}}
+• Electronic database searches
+• Physical file reviews
+• Consultation with relevant departments
+{{/if}}
+
+APPEAL RIGHTS
+
+If you believe that responsive records do exist and should have been located, you have the right to appeal this determination within {{appeal_deadline_days}} days of the date of this letter. Appeals should be submitted in writing to:
+
+{{#if appeal_address}}{{appeal_address}}{{/if}}
+{{#if appeal_email}}Email: {{appeal_email}}{{/if}}
+
+Your appeal should explain why you believe responsive records exist and provide any additional information that may assist us in locating them.
+
+For questions or concerns about this response, you may contact our FOIA Public Liaison:
+{{foia_liaison_name}}
+{{foia_liaison_phone}}
+
+Thank you for your interest in {{agency_name}}.
+
+Sincerely,
+
+{{foia_officer_name}}
+FOIA Officer
+{{agency_name}}

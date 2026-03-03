@@ -1,0 +1,67 @@
+{{agency_name}}
+{{#if agency_address}}{{agency_address}}{{/if}}
+
+{{requester_name}}
+{{requester_email}}
+
+Re: Freedom of Information Act Request - {{request_subject}}
+Request ID: {{request_id}}
+
+Dear {{requester_name}},
+
+This letter responds to your Freedom of Information Act (FOIA) request dated {{received_at}}, in which you requested {{request_subject}}.
+
+DETERMINATION
+
+We have completed our review of your request. Responsive records have been located, and we are releasing documents to you in part. Some information has been withheld pursuant to FOIA exemptions described below.
+
+RELEASED DOCUMENTS
+
+The following documents are enclosed with this response:
+
+{{#each granted_documents}}
+• {{name}}{{#if description}} - {{description}}{{/if}}
+{{/each}}
+
+WITHHELD INFORMATION
+
+Certain information has been withheld under the following FOIA exemptions:
+
+{{#each denied_documents}}
+• {{name}}
+  Exemption(s): {{#each exemptions}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}
+  {{#if reason}}Reason: {{reason}}{{/if}}
+{{/each}}
+
+EXEMPTIONS APPLIED
+
+{{#each exemptions_cited}}
+{{this}}
+{{/each}}
+
+{{#if fee_amount}}
+FEES
+
+The total fee for processing this request is ${{fee_amount}}. {{#if fee_waiver_granted}}Your request for a fee waiver has been granted.{{else}}Payment instructions are provided separately.{{/if}}
+{{/if}}
+
+APPEAL RIGHTS
+
+If you are not satisfied with this response, you have the right to appeal the withholding of any documents within {{appeal_deadline_days}} days of the date of this letter. Appeals should be submitted in writing to:
+
+{{#if appeal_address}}{{appeal_address}}{{/if}}
+{{#if appeal_email}}Email: {{appeal_email}}{{/if}}
+
+Your appeal should specifically identify the documents or portions of documents you wish to challenge and explain why you believe the exemptions were improperly applied.
+
+For questions or concerns about this response, you may contact our FOIA Public Liaison:
+{{foia_liaison_name}}
+{{foia_liaison_phone}}
+
+Thank you for your interest in {{agency_name}}.
+
+Sincerely,
+
+{{foia_officer_name}}
+FOIA Officer
+{{agency_name}}

@@ -1,0 +1,55 @@
+{{agency_name}}
+{{#if agency_address}}{{agency_address}}{{/if}}
+
+{{requester_name}}
+{{requester_email}}
+
+Re: Fee Waiver Request - FOIA Request {{request_subject}}
+Request ID: {{request_id}}
+
+Dear {{requester_name}},
+
+This letter responds to your request for a fee waiver in connection with your Freedom of Information Act (FOIA) request dated {{received_at}}.
+
+DETERMINATION
+
+After careful consideration, we have determined that your fee waiver request does not meet the criteria established under FOIA. Therefore, your fee waiver request is denied.
+
+FEES DUE
+
+The estimated fees for processing your FOIA request are ${{fee_amount}}. This amount includes:
+• Search time
+• Review time
+• Duplication costs
+
+{{#if notes}}
+EXPLANATION
+
+{{notes}}
+{{/if}}
+
+PAYMENT OPTIONS
+
+To proceed with your request, please submit payment of ${{fee_amount}} within 30 days. Payment instructions:
+[Payment instructions would be inserted here]
+
+If payment is not received within 30 days, your request will be administratively closed.
+
+APPEAL RIGHTS
+
+You have the right to appeal the denial of your fee waiver request within {{appeal_deadline_days}} days of the date of this letter. Appeals should be submitted in writing to:
+
+{{#if appeal_address}}{{appeal_address}}{{/if}}
+{{#if appeal_email}}Email: {{appeal_email}}{{/if}}
+
+Your appeal should explain why you believe you meet the criteria for a fee waiver.
+
+For questions or concerns, you may contact our FOIA Public Liaison:
+{{foia_liaison_name}}
+{{foia_liaison_phone}}
+
+Sincerely,
+
+{{foia_officer_name}}
+FOIA Officer
+{{agency_name}}

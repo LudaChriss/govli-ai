@@ -1,0 +1,49 @@
+{{agency_name}}
+{{#if agency_address}}{{agency_address}}{{/if}}
+
+{{requester_name}}
+{{requester_email}}
+
+Re: Freedom of Information Act Request - {{request_subject}}
+Request ID: {{request_id}}
+
+Dear {{requester_name}},
+
+This letter responds to your Freedom of Information Act (FOIA) request dated {{received_at}}, in which you requested {{request_subject}}.
+
+DETERMINATION
+
+We have completed our review of your request and are pleased to inform you that all responsive records have been located and are being released to you in full. No exemptions apply to the disclosed materials.
+
+RELEASED DOCUMENTS
+
+The following documents are enclosed with this response:
+
+{{#each granted_documents}}
+• {{name}}{{#if description}} - {{description}}{{/if}}
+{{/each}}
+
+{{#if fee_amount}}
+FEES
+
+The total fee for processing this request is ${{fee_amount}}. {{#if fee_waiver_granted}}Your request for a fee waiver has been granted.{{else}}Payment instructions are provided separately.{{/if}}
+{{/if}}
+
+APPEAL RIGHTS
+
+If you are not satisfied with this response, you have the right to appeal within {{appeal_deadline_days}} days of the date of this letter. Appeals should be submitted in writing to:
+
+{{#if appeal_address}}{{appeal_address}}{{/if}}
+{{#if appeal_email}}Email: {{appeal_email}}{{/if}}
+
+For questions or concerns about this response, you may contact our FOIA Public Liaison:
+{{foia_liaison_name}}
+{{foia_liaison_phone}}
+
+Thank you for your interest in {{agency_name}}.
+
+Sincerely,
+
+{{foia_officer_name}}
+FOIA Officer
+{{agency_name}}

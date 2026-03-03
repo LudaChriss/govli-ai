@@ -1,0 +1,48 @@
+{{agency_name}}
+{{#if agency_address}}{{agency_address}}{{/if}}
+
+{{requester_name}}
+{{requester_email}}
+
+Re: Freedom of Information Act Request - {{request_subject}}
+Request ID: {{request_id}}
+
+Dear {{requester_name}},
+
+This letter acknowledges receipt of your Freedom of Information Act (FOIA) request dated {{received_at}}.
+
+YOUR REQUEST
+
+You have requested: {{request_subject}}
+
+REQUEST STATUS
+
+Your request has been assigned the tracking number {{request_id}}. We will process your request in the order it was received.
+
+Under FOIA, we have 20 business days to respond to your request. However, processing time may be extended in certain circumstances. We will notify you if an extension is necessary.
+
+{{#if fee_amount}}
+ESTIMATED FEES
+
+The estimated fees for processing your request are ${{fee_amount}}. {{#if fee_waiver_requested}}We are reviewing your fee waiver request and will notify you of our determination separately.{{else}}We will provide payment instructions when we respond to your request.{{/if}}
+{{/if}}
+
+CONTACT INFORMATION
+
+If you have questions about the status of your request, please reference your request ID ({{request_id}}) and contact:
+
+{{foia_officer_name}}
+FOIA Officer
+{{#if foia_officer_email}}{{foia_officer_email}}{{/if}}
+
+You may also contact our FOIA Public Liaison for assistance:
+{{foia_liaison_name}}
+{{foia_liaison_phone}}
+
+Thank you for your interest in {{agency_name}}.
+
+Sincerely,
+
+{{foia_officer_name}}
+FOIA Officer
+{{agency_name}}

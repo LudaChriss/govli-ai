@@ -1,0 +1,53 @@
+{{agency_name}}
+{{#if agency_address}}{{agency_address}}{{/if}}
+
+{{requester_name}}
+{{requester_email}}
+
+Re: Freedom of Information Act Request - {{request_subject}}
+Request ID: {{request_id}}
+
+Dear {{requester_name}},
+
+This letter responds to your Freedom of Information Act (FOIA) request dated {{received_at}}, in which you requested {{request_subject}}.
+
+DETERMINATION
+
+We have completed our review of your request and determined that all responsive records are exempt from disclosure under the Freedom of Information Act.
+
+EXEMPTIONS APPLIED
+
+The following FOIA exemptions apply to the withheld records:
+
+{{#each exemptions_cited}}
+{{this}}
+{{/each}}
+
+WITHHELD RECORDS
+
+{{#each denied_documents}}
+• {{name}}
+  Exemption(s): {{#each exemptions}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}
+  {{#if reason}}Reason: {{reason}}{{/if}}
+{{/each}}
+
+APPEAL RIGHTS
+
+You have the right to appeal this determination within {{appeal_deadline_days}} days of the date of this letter. Appeals should be submitted in writing to:
+
+{{#if appeal_address}}{{appeal_address}}{{/if}}
+{{#if appeal_email}}Email: {{appeal_email}}{{/if}}
+
+Your appeal should explain why you believe the exemptions were improperly applied and include any additional information that supports your position.
+
+For questions or concerns about this response, you may contact our FOIA Public Liaison:
+{{foia_liaison_name}}
+{{foia_liaison_phone}}
+
+The FOIA Public Liaison is available to assist you in resolving any disputes regarding your request.
+
+Sincerely,
+
+{{foia_officer_name}}
+FOIA Officer
+{{agency_name}}
