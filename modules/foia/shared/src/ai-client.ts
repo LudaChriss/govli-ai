@@ -58,6 +58,8 @@ export class FoiaAIClient {
   private tokenBudgetManager?: any; // Will be injected
   private costTracker?: any; // Will be injected
   private promptCache?: any; // Will be injected
+  private modelRouter?: any; // Will be injected
+  private complexityScorer?: any; // Will be injected
 
   constructor(apiKey?: string, options?: Partial<RetryOptions>) {
     this.anthropic = new Anthropic({
@@ -81,6 +83,14 @@ export class FoiaAIClient {
     this.promptCache = cache;
   }
 
+  setModelRouter(router: any): void {
+    this.modelRouter = router;
+  }
+
+  setComplexityScorer(scorer: any): void {
+    this.complexityScorer = scorer;
+  }
+
   /**
    * Main AI call method with automatic audit, retry, and budget checks
    */
@@ -93,39 +103,86 @@ export class FoiaAIClient {
   ): Promise<AICallResult> {
     // 1. Check token budget
     if (this.tokenBudgetManager) {
-      const budgetOk = await this.tokenBudgetManager.checkBudget(tenantId);
-      if (!budgetOk) {
-        throw new Error('Token budget exceeded for tenant');
+      const budgetStatus = await this.tokenBudgetManager.checkBudget(tenantId);
+      if (!budgetStatus.allowed) {
+        throw new Error(budgetStatus.warning || 'Token budget exceeded for tenant');
+      }
+
+      // Log warning if approaching limit
+      if (budgetStatus.warning) {
+        console.warn(`[FoiaAIClient] ${budgetStatus.warning}`);
       }
     }
 
-    // 2. Select appropriate model based on complexity
-    const selectedModel = this.selectModel(params.model, complexityScore);
+    // 2. Select appropriate model based on complexity using ModelRouter
+    let selectedModel: string;
+    let thinkingBudget: number | undefined;
 
-    // 3. Check prompt cache
+    if (this.modelRouter && complexityScore) {
+      const modelSelection = await this.modelRouter.selectModel(
+        tenantId,
+        complexityScore.score,
+        featureId
+      );
+      selectedModel = modelSelection.model_name;
+      thinkingBudget = modelSelection.thinking_budget;
+      console.log(`[FoiaAIClient] Model selected: ${selectedModel} (${modelSelection.reason})`);
+    } else {
+      selectedModel = this.selectModel(params.model, complexityScore);
+      thinkingBudget = params.thinkingBudget;
+    }
+
+    // 3. Check prompt cache (for jurisdiction-specific content)
     const cacheKey = this.generateCacheKey(params, selectedModel);
     let cacheHit = false;
+    let cachedPrefix = '';
+
     if (this.promptCache) {
-      const cached = await this.promptCache.get(cacheKey);
-      if (cached) {
+      const cached = await this.promptCache.getCustomPrompt(cacheKey);
+      if (cached && cached.cache_hit) {
         cacheHit = true;
-        return { ...cached, usage: { ...cached.usage, cacheHit: true } };
+        cachedPrefix = cached.content;
+        console.log('[FoiaAIClient] Cache hit for prompt prefix');
       }
     }
 
     // 4. Execute AI call with retry logic
     const startTime = Date.now();
-    const result = await this.executeWithRetry(params, selectedModel);
+    const apiParams = {
+      ...params,
+      thinkingBudget: thinkingBudget || params.thinkingBudget
+    };
+    const result = await this.executeWithRetry(apiParams, selectedModel);
     const latencyMs = Date.now() - startTime;
 
-    // 5. Calculate cost
-    const costEstimate = this.calculateCost(
-      result.usage.inputTokens,
-      result.usage.outputTokens,
-      selectedModel
-    );
+    // 5. Calculate cost using CostTracker
+    let costEstimate: number;
 
-    // 6. Record usage for audit
+    if (this.costTracker) {
+      // Create a mock response object for cost estimation
+      const mockResponse = {
+        usage: {
+          input_tokens: result.usage.inputTokens,
+          output_tokens: result.usage.outputTokens
+        }
+      } as any;
+
+      const estimate = this.costTracker.estimateCost(
+        selectedModel,
+        mockResponse,
+        cacheHit,
+        false // not batch API
+      );
+      costEstimate = estimate.total_cost_usd;
+    } else {
+      costEstimate = this.calculateCost(
+        result.usage.inputTokens,
+        result.usage.outputTokens,
+        selectedModel
+      );
+    }
+
+    // 6. Record usage for audit and spend tracking
     const usageRecord: AIUsageRecord = {
       id: this.generateId(),
       tenant_id: tenantId,
@@ -142,14 +199,14 @@ export class FoiaAIClient {
       created_at: new Date()
     };
 
-    // 7. Track cost
-    if (this.costTracker) {
-      await this.costTracker.record(usageRecord);
+    // 7. Record spend in TokenBudgetManager
+    if (this.tokenBudgetManager) {
+      await this.tokenBudgetManager.recordSpend(tenantId, costEstimate, usageRecord);
     }
 
-    // 8. Cache result
+    // 8. Cache result for future use
     if (this.promptCache && !cacheHit) {
-      await this.promptCache.set(cacheKey, result);
+      await this.promptCache.setCustomPrompt(cacheKey, result.content, 3600); // 1 hour TTL
     }
 
     return { ...result, latencyMs, usage: { ...result.usage, cacheHit } };
