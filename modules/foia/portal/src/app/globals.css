@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-navy: #1B3A5C;
+    --color-teal: #0D7C8C;
+    --color-gold: #C8992A;
+  }
+  
+  /* Ensure good contrast ratios for WCAG AA */
+  body {
+    @apply text-gray-900 bg-white;
+  }
+  
+  /* Focus styles for keyboard navigation */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-teal;
+  }
+  
+  /* Skip to main content link for screen readers */
+  .skip-to-main {
+    @apply absolute left-0 top-0 -translate-y-full;
+    @apply bg-brand-navy text-white px-4 py-2 z-50;
+    @apply focus:translate-y-0 focus:outline-none;
+  }
+}
+
+@layer components {
+  /* Button styles with WCAG-compliant contrast */
+  .btn {
+    @apply px-4 py-2 rounded-md font-medium;
+    @apply transition-colors duration-200;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .btn-primary {
+    @apply bg-brand-navy text-white;
+    @apply hover:bg-navy-900;
+    @apply focus:ring-brand-navy;
+  }
+  
+  .btn-secondary {
+    @apply bg-brand-teal text-white;
+    @apply hover:bg-teal-600;
+    @apply focus:ring-brand-teal;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-brand-navy text-brand-navy;
+    @apply hover:bg-navy-50;
+    @apply focus:ring-brand-navy;
+  }
+  
+  /* Form input styles */
+  .form-input {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-md;
+    @apply focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent;
+    @apply disabled:bg-gray-100 disabled:cursor-not-allowed;
+  }
+  
+  .form-label {
+    @apply block text-sm font-medium text-gray-700 mb-1;
+  }
+  
+  .form-error {
+    @apply text-sm text-red-600 mt-1;
+  }
+  
+  .form-help {
+    @apply text-sm text-gray-600 mt-1;
+  }
+  
+  /* Card styles */
+  .card {
+    @apply bg-white border border-gray-200 rounded-lg shadow-sm;
+  }
+  
+  /* Badge styles */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  /* Alert styles */
+  .alert {
+    @apply p-4 rounded-md border;
+  }
+  
+  .alert-info {
+    @apply bg-blue-50 border-blue-200 text-blue-800;
+  }
+  
+  .alert-success {
+    @apply bg-green-50 border-green-200 text-green-800;
+  }
+  
+  .alert-warning {
+    @apply bg-yellow-50 border-yellow-200 text-yellow-800;
+  }
+  
+  .alert-error {
+    @apply bg-red-50 border-red-200 text-red-800;
+  }
+}
+
+@layer utilities {
+  /* Loading spinner */
+  .spinner {
+    @apply inline-block animate-spin rounded-full border-2 border-solid border-current border-r-transparent;
+  }
+}
