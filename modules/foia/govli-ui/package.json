@@ -2,12 +2,16 @@
   "name": "@govli/foia-ui",
   "version": "1.0.0",
   "description": "Shared UI components, design tokens, and utilities for FOIA portal and admin dashboard",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "types": "src/index.ts",
   "files": [
+    "src",
     "dist"
   ],
+  "exports": {
+    ".": "./src/index.ts"
+  },
   "scripts": {
     "build": "tsc",
     "test": "jest",
