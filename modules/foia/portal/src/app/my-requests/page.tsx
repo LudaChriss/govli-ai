@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { getMyRequests } from '@/lib/api';
 import { formatDate, getStatusDisplay } from '@/lib/utils';
-import { ListSkeleton, Spinner } from '@/components/LoadingSkeleton';
+import { ListSkeleton } from '@/components/LoadingSkeleton';
 import type { FOIARequest } from '@/types';
 
 type SortField = 'received_at' | 'subject' | 'status';
@@ -61,8 +61,8 @@ export default function MyRequestsPage() {
 
     // Apply sorting
     filtered.sort((a, b) => {
-      let compareA: any;
-      let compareB: any;
+      let compareA: number | string;
+      let compareB: number | string;
 
       switch (sortField) {
         case 'received_at':
@@ -89,14 +89,6 @@ export default function MyRequestsPage() {
     setFilteredRequests(filtered);
   };
 
-  const handleSort = (field: SortField) => {
-    if (sortField === field) {
-      setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
-    } else {
-      setSortField(field);
-      setSortOrder('desc');
-    }
-  };
 
   const getStatusCount = (status: string): number => {
     if (status === 'ALL') return requests.length;

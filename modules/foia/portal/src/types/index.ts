@@ -113,7 +113,7 @@ export interface StatusTimeline {
 export interface APIError {
   code: string;
   message: string;
-  details?: any;
+  details?: unknown;
 }
 
 export interface APIResponse<T> {

@@ -11,6 +11,7 @@ import { submitRequest } from '@/lib/api';
 import { saveDraft, loadDraft, clearDraft } from '@/lib/storage';
 import { isValidEmail, isValidPhone } from '@/lib/utils';
 import type { RequestFormData } from '@/types';
+import SmartDeflection from '@/components/SmartDeflection';
 
 const INITIAL_FORM_DATA: RequestFormData = {
   requester_name: '',
@@ -39,16 +40,51 @@ export default function SubmitRequestPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showDraftNotice, setShowDraftNotice] = useState(false);
 
-  // Load draft on mount
+  // v2.0: Detect first-time visitor and redirect to chat
   useEffect(() => {
-    const draft = loadDraft<RequestFormData>('request_form');
-    if (draft && draft.step) {
-      setFormData(draft);
-      setCurrentStep(draft.step);
-      setShowDraftNotice(true);
-      setTimeout(() => setShowDraftNotice(false), 5000);
+    // Check if user came from chat
+    const fromChat = searchParams.get('from') === 'chat';
+
+    if (!fromChat) {
+      // Check if first-time visitor
+      const hasVisited = localStorage.getItem('foia_has_visited');
+
+      if (!hasVisited) {
+        // Mark as visited and redirect to chat
+        localStorage.setItem('foia_has_visited', 'true');
+        router.push('/submit-request/chat');
+        return;
+      }
     }
-  }, []);
+
+    // Load draft or conversation data
+    const conversationData = localStorage.getItem('foia_conversation_data');
+    if (conversationData) {
+      try {
+        const data = JSON.parse(conversationData);
+        setFormData(prev => ({
+          ...prev,
+          requester_name: data.name || '',
+          requester_email: data.email || '',
+          subject: data.subject || '',
+          description: data.description || '',
+          category: data.category || '',
+          urgency: data.urgency || 'STANDARD'
+        }));
+        localStorage.removeItem('foia_conversation_data');
+      } catch (error) {
+        console.error('Failed to load conversation data:', error);
+      }
+    } else {
+      const draft = loadDraft<RequestFormData>('request_form');
+      if (draft && draft.step) {
+        setFormData(draft);
+        setCurrentStep(draft.step);
+        setShowDraftNotice(true);
+        setTimeout(() => setShowDraftNotice(false), 5000);
+      }
+    }
+  }, [router, searchParams]);
 
   // Auto-save to localStorage
   useEffect(() => {
@@ -61,7 +97,7 @@ export default function SubmitRequestPage() {
     return () => clearTimeout(timeoutId);
   }, [formData, currentStep]);
 
-  const updateField = (field: keyof RequestFormData, value: any) => {
+  const updateField = (field: keyof RequestFormData, value: string | number | boolean) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
     // Clear error for this field
     if (errors[field]) {
@@ -132,6 +168,7 @@ export default function SubmitRequestPage() {
     setIsSubmitting(true);
 
     try {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { step, date_range_start, date_range_end, ...submitData } = formData;
 
       const result = await submitRequest(submitData);
@@ -363,6 +400,9 @@ export default function SubmitRequestPage() {
                       {errors.description}
                     </p>
                   )}
+
+                  {/* v2.0: Smart Deflection - AI-12 */}
+                  <SmartDeflection description={formData.description} />
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -436,7 +476,7 @@ export default function SubmitRequestPage() {
                           name="urgency"
                           value="STANDARD"
                           checked={formData.urgency === 'STANDARD'}
-                          onChange={(e) => updateField('urgency', 'STANDARD')}
+                          onChange={() => updateField('urgency', 'STANDARD')}
                           className="mt-1 mr-2"
                         />
                         <div>
@@ -452,7 +492,7 @@ export default function SubmitRequestPage() {
                           name="urgency"
                           value="EXPEDITED"
                           checked={formData.urgency === 'EXPEDITED'}
-                          onChange={(e) => updateField('urgency', 'EXPEDITED')}
+                          onChange={() => updateField('urgency', 'EXPEDITED')}
                           className="mt-1 mr-2"
                         />
                         <div>

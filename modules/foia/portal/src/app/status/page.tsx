@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { getRequestByConfirmation } from '@/lib/api';
-import { formatDate, formatDateTime, getStatusDisplay } from '@/lib/utils';
+import { formatDate, getStatusDisplay } from '@/lib/utils';
 import { Spinner } from '@/components/LoadingSkeleton';
 import type { FOIARequest } from '@/types';
 

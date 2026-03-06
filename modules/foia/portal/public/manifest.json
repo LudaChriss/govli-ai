@@ -1,0 +1,113 @@
+{
+  "name": "FOIA Request Portal",
+  "short_name": "FOIA Portal",
+  "description": "Submit and track Freedom of Information Act requests",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0D7C8C",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["government", "productivity"],
+  "screenshots": [
+    {
+      "src": "/screenshots/submit-request.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "label": "Submit FOIA Request"
+    },
+    {
+      "src": "/screenshots/track-status.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "label": "Track Request Status"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Submit Request",
+      "short_name": "Submit",
+      "description": "Submit a new FOIA request",
+      "url": "/submit-request",
+      "icons": [
+        {
+          "src": "/icons/icon-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Track Status",
+      "short_name": "Track",
+      "description": "Check request status",
+      "url": "/status",
+      "icons": [
+        {
+          "src": "/icons/icon-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Reading Room",
+      "short_name": "Reading Room",
+      "description": "Browse released records",
+      "url": "/reading-room",
+      "icons": [
+        {
+          "src": "/icons/icon-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}

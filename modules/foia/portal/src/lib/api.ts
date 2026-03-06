@@ -40,7 +40,7 @@ apiClient.interceptors.request.use((config) => {
  */
 function handleError(error: AxiosError): APIError {
   if (error.response?.data) {
-    const errData = error.response.data as any;
+    const errData = error.response.data as { error?: { code?: string; message?: string; details?: unknown } };
     return {
       code: errData.error?.code || 'API_ERROR',
       message: errData.error?.message || 'An error occurred',

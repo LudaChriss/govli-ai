@@ -6,11 +6,10 @@
  */
 
 import { useState, useEffect } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { submitAppeal, getRequestById, getRequestByConfirmation } from '@/lib/api';
 import { formatDate } from '@/lib/utils';
-import { Spinner } from '@/components/LoadingSkeleton';
 import type { FOIARequest } from '@/types';
 
 const APPEAL_REASONS = [
@@ -24,7 +23,6 @@ const APPEAL_REASONS = [
 ];
 
 export default function AppealPage() {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const requestIdFromUrl = searchParams.get('request');
 

@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import { PageSkeleton, Spinner } from '@/components/LoadingSkeleton';
 
 jest.mock('next/link', () => {
-  return ({ children, href }: any) => {
+  return ({ children, href }: { children: React.ReactNode; href: string }) => {
     return <a href={href}>{children}</a>;
   };
 });
