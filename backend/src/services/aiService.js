@@ -3,6 +3,27 @@ const config = require('../config/config');
 /**
  * AI Service
  * Unified interface for AI operations supporting multiple providers (OpenAI, Anthropic)
+ *
+ * ⚠️  DEPRECATION NOTICE - Legacy Code
+ * ====================================
+ * This AI service is for the LEGACY PERMIT SYSTEM ONLY.
+ *
+ * FOIA modules MUST use @govli/foia-shared AI client instead:
+ *   import { getSharedAIClient } from '@govli/foia-shared';
+ *
+ * The shared AI client provides:
+ *   - Audit logging via callWithAudit()
+ *   - Token budget management
+ *   - Cost tracking
+ *   - Retry logic with exponential backoff
+ *   - Prompt caching
+ *   - Model routing
+ *
+ * See: modules/foia/shared/src/ai-client.ts
+ * See: AI_IMPLEMENTATION_AUDIT.md for compliance details
+ *
+ * DO NOT USE THIS SERVICE FOR NEW FOIA FEATURES.
+ * ⚠️  =====================================
  */
 class AIService {
   constructor() {

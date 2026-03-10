@@ -104,8 +104,26 @@ describe('Tracking Routes', () => {
         rows: [{
           id: 'req-1',
           tenant_id: 'tenant-1',
-          status: 'IN_REVIEW'
+          status: 'IN_REVIEW',
+          received_at: new Date('2024-01-01'),
+          due_date: new Date('2024-01-20')
         }]
+      });
+
+      // Mock SLA calculation query (for calculateSLAStatus)
+      mockDb.query.mockResolvedValueOnce({
+        rows: [{
+          id: 'req-1',
+          tenant_id: 'tenant-1',
+          status: 'IN_REVIEW',
+          received_at: new Date('2024-01-01'),
+          due_date: new Date('2024-01-20')
+        }]
+      });
+
+      // Mock breach_risk_score update
+      mockDb.query.mockResolvedValueOnce({
+        rows: []
       });
 
       // Mock user lookup
@@ -432,6 +450,61 @@ describe('Tracking Routes', () => {
       expect(response.body.success).toBe(true);
       expect(response.body.data).toHaveProperty('breach_risk_score');
       expect(response.body.data).toHaveProperty('sla_tier');
+    });
+  });
+
+  describe('GET /tracking/sla-wall', () => {
+    it('should return SLA wall data sorted by breach_risk_score', async () => {
+      const now = new Date();
+      const dueDate = new Date(now.getTime() + 5 * 24 * 60 * 60 * 1000);
+
+      mockDb.query.mockResolvedValueOnce({
+        rows: [
+          {
+            id: 'req-1',
+            tracking_number: 'FOIA-2024-00001',
+            requester_name: 'John Doe',
+            subject: 'Test Request 1',
+            status: 'IN_PROGRESS',
+            due_date: dueDate,
+            breach_risk_score: 85,
+            assigned_to: 'user-1',
+            received_at: now
+          },
+          {
+            id: 'req-2',
+            tracking_number: 'FOIA-2024-00002',
+            requester_name: 'Jane Smith',
+            subject: 'Test Request 2',
+            status: 'PENDING',
+            due_date: dueDate,
+            breach_risk_score: 45,
+            assigned_to: null,
+            received_at: now
+          }
+        ]
+      });
+
+      const response = await request(app)
+        .get('/tracking/sla-wall')
+        .set('Authorization', `Bearer ${authToken}`);
+
+      expect(response.status).toBe(200);
+      expect(response.body.success).toBe(true);
+      expect(response.body.data.requests).toBeDefined();
+      expect(response.body.data.summary).toBeDefined();
+      expect(response.body.data.summary.overdue).toBeDefined();
+      expect(response.body.data.summary.critical).toBeDefined();
+      expect(response.body.data.summary.at_risk).toBeDefined();
+      expect(response.body.data.summary.on_track).toBeDefined();
+    });
+
+    it('should return 401 without auth', async () => {
+      const response = await request(app)
+        .get('/tracking/sla-wall');
+
+      expect(response.status).toBe(401);
+      expect(response.body.error.code).toBe('UNAUTHORIZED');
     });
   });
 });

@@ -209,6 +209,13 @@ const FoiaRequest = sequelize.define('FoiaRequest', {
     field: 'extension_reason',
     comment: 'Reason for extension(s)'
   },
+  breachRiskScore: {
+    type: DataTypes.DECIMAL(5, 2),
+    allowNull: true,
+    defaultValue: 0,
+    field: 'breach_risk_score',
+    comment: 'SLA breach risk score (0-100), calculated on status transitions'
+  },
 
   // Fees
   estimatedFee: {
@@ -331,6 +338,9 @@ const FoiaRequest = sequelize.define('FoiaRequest', {
     },
     {
       fields: ['date_submitted']
+    },
+    {
+      fields: ['breach_risk_score']
     },
     {
       fields: ['requester_email']

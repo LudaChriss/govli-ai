@@ -333,6 +333,40 @@ export function createTrackingRoutes(db: Pool): Router {
   });
 
   /**
+   * GET /tracking/sla-wall
+   * Get SLA wall display data for full-screen monitoring
+   * Returns all active requests sorted by breach_risk_score DESC with urgency buckets
+   */
+  router.get('/sla-wall', async (req: AuthRequest, res: Response) => {
+    try {
+      if (!req.auth) {
+        return res.status(401).json({
+          success: false,
+          error: { code: 'UNAUTHORIZED', message: 'Authentication required' }
+        });
+      }
+
+      const wallData = await slaService.getSLAWall(req.auth.tenant_id);
+
+      res.json({
+        success: true,
+        data: wallData,
+        timestamp: new Date()
+      });
+    } catch (error) {
+      console.error('[TrackingRoutes] SLA wall error:', error);
+      res.status(500).json({
+        success: false,
+        error: {
+          code: 'FETCH_FAILED',
+          message: error instanceof Error ? error.message : 'Failed to fetch SLA wall data'
+        },
+        timestamp: new Date()
+      });
+    }
+  });
+
+  /**
    * GET /tracking/requests/:id/sla-status
    * Get SLA status for a specific request
    */

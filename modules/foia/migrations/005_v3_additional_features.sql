@@ -1,9 +1,9 @@
 -- Govli AI FOIA Module: v3.0 Additional Features
--- Migration 005: Migration tracking, response cloning, copilot, and compatibility
+-- Migration 005: Migration tracking, response cloning, copilot, and compatibility (Updated for PascalCase schema)
 
 -- Migration Records Table
 -- Track legacy system data migrations
-CREATE TABLE IF NOT EXISTS foia_migration_records (
+CREATE TABLE IF NOT EXISTS "FoiaMigrationRecords" (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   migration_source VARCHAR(50) NOT NULL CHECK (
     migration_source IN ('govqa', 'nextrequest', 'justfoia', 'foiaxpress', 'spreadsheet', 'email')
@@ -18,20 +18,22 @@ CREATE TABLE IF NOT EXISTS foia_migration_records (
   migrated_at TIMESTAMP DEFAULT NOW(),
   validated_at TIMESTAMP,
   validator_notes TEXT,
+  "createdAt" TIMESTAMP DEFAULT NOW(),
+  "updatedAt" TIMESTAMP DEFAULT NOW(),
 
   CONSTRAINT foia_migration_records_request_fk FOREIGN KEY (govli_request_id)
-    REFERENCES foia_requests(id) ON DELETE CASCADE,
+    REFERENCES "FoiaRequests"(id) ON DELETE CASCADE,
   CONSTRAINT unique_legacy_record UNIQUE (migration_source, legacy_id)
 );
 
-CREATE INDEX idx_foia_migration_records_source ON foia_migration_records(migration_source);
-CREATE INDEX idx_foia_migration_records_legacy_id ON foia_migration_records(legacy_id);
-CREATE INDEX idx_foia_migration_records_govli_id ON foia_migration_records(govli_request_id);
-CREATE INDEX idx_foia_migration_records_status ON foia_migration_records(validation_status);
+CREATE INDEX idx_foia_migration_records_source ON "FoiaMigrationRecords"(migration_source);
+CREATE INDEX idx_foia_migration_records_legacy_id ON "FoiaMigrationRecords"(legacy_id);
+CREATE INDEX idx_foia_migration_records_govli_id ON "FoiaMigrationRecords"(govli_request_id);
+CREATE INDEX idx_foia_migration_records_status ON "FoiaMigrationRecords"(validation_status);
 
 -- Response Clone Table
 -- Track cloned/templated responses
-CREATE TABLE IF NOT EXISTS foia_response_clones (
+CREATE TABLE IF NOT EXISTS "FoiaResponseClones" (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   source_request_id UUID NOT NULL,
   target_request_id UUID NOT NULL,
@@ -39,25 +41,26 @@ CREATE TABLE IF NOT EXISTS foia_response_clones (
   customizations_required TEXT[], -- Sections that need manual editing
   clone_metadata JSONB,
   created_by UUID NOT NULL,
-  created_at TIMESTAMP DEFAULT NOW(),
+  "createdAt" TIMESTAMP DEFAULT NOW(),
+  "updatedAt" TIMESTAMP DEFAULT NOW(),
   last_modified_at TIMESTAMP DEFAULT NOW(),
 
   CONSTRAINT foia_response_clones_source_fk FOREIGN KEY (source_request_id)
-    REFERENCES foia_requests(id) ON DELETE CASCADE,
+    REFERENCES "FoiaRequests"(id) ON DELETE CASCADE,
   CONSTRAINT foia_response_clones_target_fk FOREIGN KEY (target_request_id)
-    REFERENCES foia_requests(id) ON DELETE CASCADE,
+    REFERENCES "FoiaRequests"(id) ON DELETE CASCADE,
   CONSTRAINT foia_response_clones_user_fk FOREIGN KEY (created_by)
-    REFERENCES users(id) ON DELETE SET NULL
+    REFERENCES "Users"(id) ON DELETE SET NULL
 );
 
-CREATE INDEX idx_foia_response_clones_source ON foia_response_clones(source_request_id);
-CREATE INDEX idx_foia_response_clones_target ON foia_response_clones(target_request_id);
-CREATE INDEX idx_foia_response_clones_created_by ON foia_response_clones(created_by);
-CREATE INDEX idx_foia_response_clones_created_at ON foia_response_clones(created_at DESC);
+CREATE INDEX idx_foia_response_clones_source ON "FoiaResponseClones"(source_request_id);
+CREATE INDEX idx_foia_response_clones_target ON "FoiaResponseClones"(target_request_id);
+CREATE INDEX idx_foia_response_clones_created_by ON "FoiaResponseClones"(created_by);
+CREATE INDEX idx_foia_response_clones_created_at ON "FoiaResponseClones"("createdAt" DESC);
 
 -- Copilot Sessions Table
 -- AI-assisted conversation sessions for staff
-CREATE TABLE IF NOT EXISTS foia_copilot_sessions (
+CREATE TABLE IF NOT EXISTS "FoiaCopilotSessions" (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   request_id UUID NOT NULL,
   user_id UUID NOT NULL,
@@ -68,22 +71,24 @@ CREATE TABLE IF NOT EXISTS foia_copilot_sessions (
   total_messages INTEGER NOT NULL DEFAULT 0,
   ai_suggestions_accepted INTEGER NOT NULL DEFAULT 0,
   ai_suggestions_rejected INTEGER NOT NULL DEFAULT 0,
+  "createdAt" TIMESTAMP DEFAULT NOW(),
+  "updatedAt" TIMESTAMP DEFAULT NOW(),
 
   CONSTRAINT foia_copilot_sessions_request_fk FOREIGN KEY (request_id)
-    REFERENCES foia_requests(id) ON DELETE CASCADE,
+    REFERENCES "FoiaRequests"(id) ON DELETE CASCADE,
   CONSTRAINT foia_copilot_sessions_user_fk FOREIGN KEY (user_id)
-    REFERENCES users(id) ON DELETE CASCADE
+    REFERENCES "Users"(id) ON DELETE CASCADE
 );
 
-CREATE INDEX idx_foia_copilot_sessions_request ON foia_copilot_sessions(request_id);
-CREATE INDEX idx_foia_copilot_sessions_user ON foia_copilot_sessions(user_id);
-CREATE INDEX idx_foia_copilot_sessions_started ON foia_copilot_sessions(started_at DESC);
-CREATE INDEX idx_foia_copilot_sessions_active ON foia_copilot_sessions(ended_at)
+CREATE INDEX idx_foia_copilot_sessions_request ON "FoiaCopilotSessions"(request_id);
+CREATE INDEX idx_foia_copilot_sessions_user ON "FoiaCopilotSessions"(user_id);
+CREATE INDEX idx_foia_copilot_sessions_started ON "FoiaCopilotSessions"(started_at DESC);
+CREATE INDEX idx_foia_copilot_sessions_active ON "FoiaCopilotSessions"(ended_at)
   WHERE ended_at IS NULL;
 
 -- Compatibility API Requests Table
 -- Log requests from legacy system integrations
-CREATE TABLE IF NOT EXISTS foia_compat_requests (
+CREATE TABLE IF NOT EXISTS "FoiaCompatRequests" (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   legacy_system VARCHAR(50) NOT NULL CHECK (
     legacy_system IN ('govqa', 'nextrequest', 'justfoia', 'foiaxpress', 'spreadsheet', 'email')
@@ -97,7 +102,8 @@ CREATE TABLE IF NOT EXISTS foia_compat_requests (
   ),
   error_message TEXT,
   processing_time_ms INTEGER,
-  created_at TIMESTAMP DEFAULT NOW(),
+  "createdAt" TIMESTAMP DEFAULT NOW(),
+  "updatedAt" TIMESTAMP DEFAULT NOW(),
   completed_at TIMESTAMP,
 
   CONSTRAINT valid_http_method CHECK (
@@ -105,10 +111,10 @@ CREATE TABLE IF NOT EXISTS foia_compat_requests (
   )
 );
 
-CREATE INDEX idx_foia_compat_requests_legacy_system ON foia_compat_requests(legacy_system);
-CREATE INDEX idx_foia_compat_requests_endpoint ON foia_compat_requests(endpoint);
-CREATE INDEX idx_foia_compat_requests_status ON foia_compat_requests(status);
-CREATE INDEX idx_foia_compat_requests_created ON foia_compat_requests(created_at DESC);
+CREATE INDEX idx_foia_compat_requests_legacy_system ON "FoiaCompatRequests"(legacy_system);
+CREATE INDEX idx_foia_compat_requests_endpoint ON "FoiaCompatRequests"(endpoint);
+CREATE INDEX idx_foia_compat_requests_status ON "FoiaCompatRequests"(status);
+CREATE INDEX idx_foia_compat_requests_created ON "FoiaCompatRequests"("createdAt" DESC);
 
 -- Function to update copilot message count
 CREATE OR REPLACE FUNCTION update_copilot_message_count()
@@ -120,7 +126,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 CREATE TRIGGER trigger_update_copilot_message_count
-  BEFORE INSERT OR UPDATE ON foia_copilot_sessions
+  BEFORE INSERT OR UPDATE ON "FoiaCopilotSessions"
   FOR EACH ROW
   EXECUTE FUNCTION update_copilot_message_count();
 
@@ -130,21 +136,21 @@ RETURNS TRIGGER AS $$
 BEGIN
   IF NEW.status = 'COMPLETED' OR NEW.status = 'FAILED' THEN
     NEW.completed_at := NOW();
-    NEW.processing_time_ms := EXTRACT(EPOCH FROM (NOW() - NEW.created_at)) * 1000;
+    NEW.processing_time_ms := EXTRACT(EPOCH FROM (NOW() - NEW."createdAt")) * 1000;
   END IF;
   RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
 CREATE TRIGGER trigger_complete_compat_request
-  BEFORE UPDATE ON foia_compat_requests
+  BEFORE UPDATE ON "FoiaCompatRequests"
   FOR EACH ROW
   WHEN (OLD.status = 'PENDING' AND (NEW.status = 'COMPLETED' OR NEW.status = 'FAILED'))
   EXECUTE FUNCTION complete_compat_request();
 
 -- Scoping Suggestions Table
 -- Store AI-generated scoping recommendations
-CREATE TABLE IF NOT EXISTS foia_scoping_suggestions (
+CREATE TABLE IF NOT EXISTS "FoiaScopingSuggestions" (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   request_id UUID NOT NULL,
   original_description TEXT NOT NULL,
@@ -153,20 +159,21 @@ CREATE TABLE IF NOT EXISTS foia_scoping_suggestions (
   confidence_score DECIMAL(5, 2) NOT NULL,
   accepted BOOLEAN,
   staff_feedback TEXT,
-  created_at TIMESTAMP DEFAULT NOW(),
+  "createdAt" TIMESTAMP DEFAULT NOW(),
+  "updatedAt" TIMESTAMP DEFAULT NOW(),
   reviewed_at TIMESTAMP,
 
   CONSTRAINT foia_scoping_suggestions_request_fk FOREIGN KEY (request_id)
-    REFERENCES foia_requests(id) ON DELETE CASCADE
+    REFERENCES "FoiaRequests"(id) ON DELETE CASCADE
 );
 
-CREATE INDEX idx_foia_scoping_suggestions_request ON foia_scoping_suggestions(request_id);
-CREATE INDEX idx_foia_scoping_suggestions_accepted ON foia_scoping_suggestions(accepted);
-CREATE INDEX idx_foia_scoping_suggestions_created ON foia_scoping_suggestions(created_at DESC);
+CREATE INDEX idx_foia_scoping_suggestions_request ON "FoiaScopingSuggestions"(request_id);
+CREATE INDEX idx_foia_scoping_suggestions_accepted ON "FoiaScopingSuggestions"(accepted);
+CREATE INDEX idx_foia_scoping_suggestions_created ON "FoiaScopingSuggestions"("createdAt" DESC);
 
 -- Triage Scores Table
 -- AI relevance and triage scoring
-CREATE TABLE IF NOT EXISTS foia_triage_scores (
+CREATE TABLE IF NOT EXISTS "FoiaTriageScores" (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   request_id UUID NOT NULL,
   document_id UUID, -- Optional: can score documents too
@@ -176,20 +183,21 @@ CREATE TABLE IF NOT EXISTS foia_triage_scores (
     bucket IN ('LIKELY_RESPONSIVE', 'POSSIBLY_RESPONSIVE', 'REVIEW_NEEDED')
   ),
   reasoning TEXT,
-  created_at TIMESTAMP DEFAULT NOW(),
+  "createdAt" TIMESTAMP DEFAULT NOW(),
+  "updatedAt" TIMESTAMP DEFAULT NOW(),
 
   CONSTRAINT foia_triage_scores_request_fk FOREIGN KEY (request_id)
-    REFERENCES foia_requests(id) ON DELETE CASCADE
+    REFERENCES "FoiaRequests"(id) ON DELETE CASCADE
 );
 
-CREATE INDEX idx_foia_triage_scores_request ON foia_triage_scores(request_id);
-CREATE INDEX idx_foia_triage_scores_bucket ON foia_triage_scores(bucket);
-CREATE INDEX idx_foia_triage_scores_relevance ON foia_triage_scores(relevance_score DESC);
+CREATE INDEX idx_foia_triage_scores_request ON "FoiaTriageScores"(request_id);
+CREATE INDEX idx_foia_triage_scores_bucket ON "FoiaTriageScores"(bucket);
+CREATE INDEX idx_foia_triage_scores_relevance ON "FoiaTriageScores"(relevance_score DESC);
 
 -- Comments for documentation
-COMMENT ON TABLE foia_migration_records IS 'Track legacy system data migrations';
-COMMENT ON TABLE foia_response_clones IS 'Response templates cloned from similar requests';
-COMMENT ON TABLE foia_copilot_sessions IS 'AI copilot conversation sessions';
-COMMENT ON TABLE foia_compat_requests IS 'Legacy system API compatibility layer';
-COMMENT ON TABLE foia_scoping_suggestions IS 'AI-generated request scoping recommendations';
-COMMENT ON TABLE foia_triage_scores IS 'AI relevance and triage scoring';
+COMMENT ON TABLE "FoiaMigrationRecords" IS 'Track legacy system data migrations';
+COMMENT ON TABLE "FoiaResponseClones" IS 'Response templates cloned from similar requests';
+COMMENT ON TABLE "FoiaCopilotSessions" IS 'AI copilot conversation sessions';
+COMMENT ON TABLE "FoiaCompatRequests" IS 'Legacy system API compatibility layer';
+COMMENT ON TABLE "FoiaScopingSuggestions" IS 'AI-generated request scoping recommendations';
+COMMENT ON TABLE "FoiaTriageScores" IS 'AI relevance and triage scoring';

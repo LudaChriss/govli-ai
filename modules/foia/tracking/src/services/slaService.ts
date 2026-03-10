@@ -271,6 +271,107 @@ export class SLAService {
   }
 
   /**
+   * Get SLA wall display data
+   * Returns all active requests sorted by breach_risk_score DESC
+   * with urgency buckets for full-screen SLA wall display
+   */
+  async getSLAWall(tenant_id: string): Promise<{
+    requests: Array<{
+      foia_request_id: string;
+      tracking_number: string;
+      requester_name: string;
+      subject: string;
+      status: FoiaRequestStatus;
+      due_date: Date;
+      days_remaining: number;
+      breach_risk_score: number;
+      urgency_bucket: 'OVERDUE' | 'CRITICAL' | 'AT_RISK' | 'ON_TRACK';
+      sla_tier: 'GREEN' | 'YELLOW' | 'ORANGE' | 'RED';
+      assigned_to?: string;
+    }>;
+    summary: {
+      overdue: number;
+      critical: number;
+      at_risk: number;
+      on_track: number;
+    };
+  }> {
+    // Get all active requests with breach_risk_score
+    const result = await this.db.query(
+      `SELECT
+        id,
+        tracking_number,
+        requester_name,
+        subject,
+        status,
+        due_date,
+        breach_risk_score,
+        assigned_to,
+        received_at
+       FROM foia_requests
+       WHERE tenant_id = $1 AND status NOT IN ('COMPLETED', 'DENIED')
+       ORDER BY breach_risk_score DESC NULLS LAST, due_date ASC`,
+      [tenant_id]
+    );
+
+    const now = new Date();
+    const requests = result.rows.map(row => {
+      const due_date = row.due_date ? new Date(row.due_date) : null;
+      const received_at = new Date(row.received_at);
+
+      // Calculate days remaining
+      const days_remaining = due_date
+        ? Math.floor((due_date.getTime() - now.getTime()) / (1000 * 60 * 60 * 24))
+        : 0;
+
+      // Use stored breach_risk_score or calculate it
+      const breach_risk_score = row.breach_risk_score || 0;
+
+      // Determine urgency bucket
+      let urgency_bucket: 'OVERDUE' | 'CRITICAL' | 'AT_RISK' | 'ON_TRACK';
+      if (days_remaining < 0) {
+        urgency_bucket = 'OVERDUE';
+      } else if (breach_risk_score >= 81) {
+        urgency_bucket = 'CRITICAL';
+      } else if (breach_risk_score >= 61) {
+        urgency_bucket = 'AT_RISK';
+      } else {
+        urgency_bucket = 'ON_TRACK';
+      }
+
+      // Determine SLA tier
+      const sla_tier = this.determineSLATier(breach_risk_score, days_remaining < 0);
+
+      return {
+        foia_request_id: row.id,
+        tracking_number: row.tracking_number,
+        requester_name: row.requester_name,
+        subject: row.subject,
+        status: row.status as FoiaRequestStatus,
+        due_date: due_date || now,
+        days_remaining,
+        breach_risk_score,
+        urgency_bucket,
+        sla_tier,
+        assigned_to: row.assigned_to
+      };
+    });
+
+    // Calculate summary
+    const summary = {
+      overdue: requests.filter(r => r.urgency_bucket === 'OVERDUE').length,
+      critical: requests.filter(r => r.urgency_bucket === 'CRITICAL').length,
+      at_risk: requests.filter(r => r.urgency_bucket === 'AT_RISK').length,
+      on_track: requests.filter(r => r.urgency_bucket === 'ON_TRACK').length
+    };
+
+    return {
+      requests,
+      summary
+    };
+  }
+
+  /**
    * Check SLA thresholds and emit warning events (for cron job)
    */
   async checkSLAThresholds(tenant_id: string): Promise<void> {

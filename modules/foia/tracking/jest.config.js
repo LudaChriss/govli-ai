@@ -7,7 +7,8 @@ module.exports = {
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',
     '!src/**/*.d.ts',
-    '!src/__tests__/**'
+    '!src/__tests__/**',
+    '!src/index.ts' // Exclude server entry point
   ],
   coverageDirectory: 'coverage',
   verbose: true,

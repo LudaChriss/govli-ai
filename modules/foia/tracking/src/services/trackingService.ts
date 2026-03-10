@@ -7,6 +7,7 @@ import { Pool } from 'pg';
 import { FoiaRequestStatus, emit } from '@govli/foia-shared';
 import { TimelineEvent, StateTransitionRequest, DeadlineExtension } from '../types';
 import { stateMachine } from './stateMachine';
+import { SLAService } from './slaService';
 import crypto from 'crypto';
 
 /**
@@ -14,9 +15,11 @@ import crypto from 'crypto';
  */
 export class TrackingService {
   private db: Pool;
+  private slaService: SLAService;
 
   constructor(db: Pool) {
     this.db = db;
+    this.slaService = new SLAService(db);
   }
 
   /**
@@ -72,6 +75,43 @@ export class TrackingService {
     );
 
     const updatedRequest = updateResult.rows[0];
+
+    // Calculate and update breach_risk_score (A-3 Tracking v2.0)
+    try {
+      const slaStatus = await this.slaService.calculateSLAStatus(tenant_id, foia_request_id);
+
+      // Update breach_risk_score in database
+      await this.db.query(
+        `UPDATE foia_requests
+         SET breach_risk_score = $1
+         WHERE id = $2 AND tenant_id = $3`,
+        [slaStatus.breach_risk_score, foia_request_id, tenant_id]
+      );
+
+      updatedRequest.breach_risk_score = slaStatus.breach_risk_score;
+
+      // Emit WebSocket event for SLA dashboard update
+      await emit({
+        id: crypto.randomUUID(),
+        tenant_id,
+        event_type: 'foia.sla.risk_updated',
+        entity_id: foia_request_id,
+        entity_type: 'foia_request',
+        user_id,
+        metadata: {
+          request_id: foia_request_id,
+          risk_score: slaStatus.breach_risk_score,
+          days_remaining: slaStatus.days_remaining,
+          status: newStatus,
+          sla_tier: slaStatus.sla_tier,
+          is_overdue: slaStatus.is_overdue
+        },
+        timestamp: new Date()
+      });
+    } catch (slaError) {
+      // Log SLA calculation error but don't fail the transition
+      console.error('[TrackingService] SLA calculation error:', slaError);
+    }
 
     // Create timeline event
     const timelineEvent = await this.addTimelineEvent(
