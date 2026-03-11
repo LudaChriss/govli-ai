@@ -85,30 +85,40 @@ export class TriageService {
     };
     let totalConfidence = 0;
 
-    // Process each document
-    for (const doc of documents) {
-      try {
-        const result = await this.triageDocument(
-          tenant_id,
-          foia_request_id,
-          doc,
-          user_id
-        );
+    // Process documents in batches of 10 to avoid API rate limits
+    const BATCH_SIZE = 10;
+    for (let i = 0; i < documents.length; i += BATCH_SIZE) {
+      const batch = documents.slice(i, i + BATCH_SIZE);
 
-        completedCount++;
-        classifications[result.classification]++;
-        totalConfidence += result.confidence_score;
+      for (const doc of batch) {
+        try {
+          const result = await this.triageDocument(
+            tenant_id,
+            foia_request_id,
+            doc,
+            user_id
+          );
 
-        // Update document with triage status
-        await this.db.query(
-          `UPDATE "FoiaDocuments"
-           SET triage_status = $1, triage_confidence = $2, "updatedAt" = NOW()
-           WHERE id = $3`,
-          [result.classification, result.confidence_score, doc.id]
-        );
-      } catch (error) {
-        console.error(`[TriageService] Failed to triage document ${doc.id}:`, error);
-        failedCount++;
+          completedCount++;
+          classifications[result.classification]++;
+          totalConfidence += result.confidence_score;
+
+          // Update document with triage status
+          await this.db.query(
+            `UPDATE "FoiaDocuments"
+             SET triage_status = $1, triage_confidence = $2, "updatedAt" = NOW()
+             WHERE id = $3`,
+            [result.classification, result.confidence_score, doc.id]
+          );
+        } catch (error) {
+          console.error(`[TriageService] Failed to triage document ${doc.id}:`, error);
+          failedCount++;
+        }
+      }
+
+      // Small delay between batches to avoid rate limiting
+      if (i + BATCH_SIZE < documents.length) {
+        await this.sleep(1000); // 1 second delay between batches
       }
     }
 
@@ -140,20 +150,23 @@ export class TriageService {
       ]
     );
 
-    // Emit event
+    // Emit event (spec format: foia.ai.triage.complete)
     await emit({
       id: crypto.randomUUID(),
       tenant_id,
-      event_type: 'foia.ai.triage.batch_completed',
+      event_type: 'foia.ai.triage.complete',
       entity_id: foia_request_id,
       entity_type: 'foia_request',
       user_id,
       metadata: {
         batch_id: batchId,
-        document_count: documents.length,
+        likely: classifications.LIKELY_RESPONSIVE + classifications.PARTIALLY_RESPONSIVE,
+        possibly: classifications.LIKELY_EXEMPT, // May need officer judgment on exemptions
+        review_needed: classifications.NEEDS_REVIEW + classifications.SENSITIVE_CONTENT + classifications.NOT_RESPONSIVE,
+        avg_confidence: avgConfidence,
+        total_documents: documents.length,
         completed_count: completedCount,
-        failed_count: failedCount,
-        avg_confidence: avgConfidence
+        failed_count: failedCount
       },
       timestamp: new Date()
     });
@@ -517,6 +530,7 @@ export class TriageService {
 
   /**
    * Build AI triage prompt for a document
+   * Uses smart truncation for large documents (first 3000 + last 1000 + middle 1000)
    */
   private buildTriagePrompt(document: any): string {
     let prompt = `Analyze this document for FOIA response triage:\n\n`;
@@ -530,7 +544,8 @@ export class TriageService {
     prompt += `\n`;
 
     if (document.content_extract) {
-      prompt += `DOCUMENT CONTENT:\n${document.content_extract}\n\n`;
+      const truncatedContent = this.smartTruncateText(document.content_extract);
+      prompt += `DOCUMENT CONTENT:\n${truncatedContent}\n\n`;
     } else {
       prompt += `Note: Full document content not available. Analyze based on metadata only.\n\n`;
     }
@@ -538,6 +553,31 @@ export class TriageService {
     prompt += `Perform a thorough triage analysis of this document.`;
 
     return prompt;
+  }
+
+  /**
+   * Smart text truncation for large documents
+   * If > 8000 chars: first 3000 + middle 1000 + last 1000
+   * Otherwise: return as-is
+   */
+  private smartTruncateText(text: string): string {
+    if (text.length <= 8000) {
+      return text;
+    }
+
+    const first = text.substring(0, 3000);
+    const last = text.substring(text.length - 1000);
+    const middleStart = Math.floor((text.length - 1000) / 2);
+    const middle = text.substring(middleStart, middleStart + 1000);
+
+    return `${first}\n\n[... TRUNCATED - showing beginning, middle section, and end ...]\n\n${middle}\n\n[... TRUNCATED - showing end ...]\n\n${last}`;
+  }
+
+  /**
+   * Utility: Sleep for ms (used for batch rate limiting)
+   */
+  private sleep(ms: number): Promise<void> {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   /**

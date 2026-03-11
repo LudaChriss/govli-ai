@@ -69,3 +69,4 @@ if (require.main === module) {
 export { app, db };
 export { TriageService } from './services/triageService';
 export * from './types';
+export * from './events/eventHandlers';
