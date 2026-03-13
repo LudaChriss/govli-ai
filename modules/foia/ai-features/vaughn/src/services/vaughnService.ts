@@ -4,6 +4,7 @@
  */
 
 import { Pool } from 'pg';
+import * as crypto from 'crypto';
 import { getSharedAIClient, emit } from '@govli/foia-shared';
 import {
   VaughnIndex,
@@ -150,11 +151,19 @@ export class VaughnService {
     index.generation_time_ms = generationTime;
 
     // 6. Emit event
-    await emit(tenant_id, 'foia.ai.vaughn.generated', {
-      vaughn_index_id: index.id,
-      foia_request_id: input.foia_request_id,
-      document_count: entries.length,
-      generation_time_ms: generationTime
+    await emit({
+      id: crypto.randomUUID(),
+      tenant_id,
+      event_type: 'foia.ai.vaughn.generated',
+      entity_id: index.id,
+      entity_type: 'vaughn_index',
+      metadata: {
+        vaughn_index_id: index.id,
+        foia_request_id: input.foia_request_id,
+        document_count: entries.length,
+        generation_time_ms: generationTime
+      },
+      timestamp: new Date()
     });
 
     console.log(`[VaughnService] ✓ Vaughn Index generated with ${entries.length} entries in ${generationTime}ms`);
@@ -297,7 +306,7 @@ Return as JSON with the four required fields.`;
     document_description: string;
     statutory_citation: string;
     exemption_explanation: string;
-    segregability_explanation: string;
+    segregability_explanation: string | null;
   } {
     try {
       // Try parsing as JSON first
@@ -582,7 +591,7 @@ Return as JSON with the four required fields.`;
     // Generate new index
     const newIndex = await this.generateVaughnIndex(tenant_id, user_id, {
       foia_request_id: original.index.foia_request_id,
-      litigation_hold_id: original.index.litigation_hold_id
+      litigation_hold_id: original.index.litigation_hold_id || undefined
     });
 
     // If including edited entries, copy them over
