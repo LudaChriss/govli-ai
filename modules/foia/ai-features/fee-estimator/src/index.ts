@@ -1,4 +1,9 @@
-// @govli/foia-fee-estimator
-// Built by Govli AI FOIA Build Guide v2/v3
+/**
+ * Govli AI FOIA Module - Fee Estimator
+ * AI-8: Real-Time Fee Estimator
+ */
 
-export {};
+export { default as feeEstimatorRoutes } from './routes';
+export { setDatabasePool, estimateFee, getFeeEstimate, trackAccuracy } from './handlers';
+export { FeeCalculator } from './services/feeCalculator';
+export { ExplanationGenerator } from './services/explanationGenerator';
