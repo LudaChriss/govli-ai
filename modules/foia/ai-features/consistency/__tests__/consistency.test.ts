@@ -15,12 +15,11 @@ import {
 
 // Mock the shared AI client
 jest.mock('@govli/foia-shared', () => ({
-  getAIClient: jest.fn(() => ({
-    callWithAudit: jest.fn()
-  }))
+  getSharedAIClient: jest.fn(),
+  emit: jest.fn().mockResolvedValue(undefined)
 }));
 
-import { getAIClient } from '@govli/foia-shared';
+import { getSharedAIClient } from '@govli/foia-shared';
 
 describe('AI-4: Exemption Consistency Analyzer', () => {
   let mockDb: jest.Mocked<Pool>;
@@ -45,7 +44,7 @@ describe('AI-4: Exemption Consistency Analyzer', () => {
     mockAIClient = {
       callWithAudit: jest.fn()
     };
-    (getAIClient as jest.Mock).mockReturnValue(mockAIClient);
+    (getSharedAIClient as jest.Mock).mockReturnValue(mockAIClient);
 
     consistencyService = new ConsistencyService(mockDb);
   });

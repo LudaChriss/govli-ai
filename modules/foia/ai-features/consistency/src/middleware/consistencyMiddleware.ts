@@ -59,7 +59,7 @@ const DEFAULT_OPTIONS: ConsistencyMiddlewareOptions = {
 export function consistencyCheckMiddleware(
   db: Pool,
   options: ConsistencyMiddlewareOptions = {}
-): (req: Request, res: Response, next: NextFunction) => Promise<void> {
+) {
   const config = { ...DEFAULT_OPTIONS, ...options };
   const consistencyService = new ConsistencyService(db);
 

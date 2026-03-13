@@ -14,7 +14,7 @@
  */
 
 import { Pool } from 'pg';
-import { ReportService } from '../ai-features/consistency/src/services/reportService';
+import { ReportService } from '../../ai-features/consistency/src/services/reportService';
 import * as cron from 'node-cron';
 
 interface MonthlyReportCronConfig {

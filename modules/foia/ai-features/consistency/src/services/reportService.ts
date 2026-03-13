@@ -4,7 +4,7 @@
  */
 
 import { Pool } from 'pg';
-import { getAIClient } from '@govli/foia-shared';
+import { getSharedAIClient } from '@govli/foia-shared';
 import { MonthlyConsistencyReport } from '../types';
 
 interface ReportGenerationInput {
@@ -39,7 +39,7 @@ export class ReportService {
 
   constructor(db: Pool) {
     this.db = db;
-    this.aiClient = getAIClient();
+    this.aiClient = getSharedAIClient();
   }
 
   /**
