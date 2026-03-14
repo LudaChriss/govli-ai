@@ -210,6 +210,39 @@ export async function submitRequest(
       // Don't fail the request if webhook fails
     }
 
+    // AI-8: Generate fee estimate (fire-and-forget)
+    try {
+      // Calculate date range in years
+      let dateRangeYears = 0;
+      if (requestData.date_range_start && requestData.date_range_end) {
+        const start = new Date(requestData.date_range_start);
+        const end = new Date(requestData.date_range_end);
+        dateRangeYears = Math.abs(end.getFullYear() - start.getFullYear());
+      }
+
+      // Fire-and-forget fee estimation call
+      axios.post(`${process.env.API_BASE_URL || 'http://localhost:3000'}/ai/fees/estimate`, {
+        foia_request_id: requestId,
+        description: requestData.description,
+        requester_category: requestData.requester_category,
+        agencies_requested: requestData.agency_names,
+        date_range_years: dateRangeYears,
+        estimated_record_volume: 'MEDIUM', // Default, could be enhanced with ML
+        record_type: undefined // Could be extracted from description
+      }, {
+        timeout: 10000,
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Tenant-ID': tenantId
+        }
+      }).catch((error) => {
+        console.error('Fee estimation failed (non-blocking):', error.message);
+      });
+    } catch (error: any) {
+      console.error('Fee estimation initialization failed (non-blocking):', error);
+      // Don't fail the request if fee estimation fails
+    }
+
     // Return response
     const response: ApiResponse<{
       request_id: string;
