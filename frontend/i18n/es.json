@@ -1,0 +1,139 @@
+{
+  "language_name": "Español",
+  "language_code": "es",
+
+  "common": {
+    "submit": "Enviar",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "close": "Cerrar",
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "confirm": "Confirmar",
+    "yes": "Sí",
+    "no": "No",
+    "required": "Requerido",
+    "optional": "Opcional",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "download": "Descargar",
+    "upload": "Subir",
+    "select_language": "Seleccionar idioma"
+  },
+
+  "foia": {
+    "title": "Portal de Solicitudes FOIA",
+    "subtitle": "Sistema de Solicitudes de la Ley de Libertad de Información",
+    "new_request": "Nueva Solicitud",
+    "my_requests": "Mis Solicitudes",
+    "track_request": "Rastrear Solicitud",
+    "confirmation_number": "Número de Confirmación",
+    "request_description": "Descripción de la Solicitud",
+    "requester_category": "Categoría del Solicitante",
+    "contact_information": "Información de Contacto",
+    "full_name": "Nombre Completo",
+    "email_address": "Correo Electrónico",
+    "phone_number": "Número de Teléfono",
+    "mailing_address": "Dirección Postal",
+    "organization": "Organización",
+    "submit_request": "Enviar Solicitud"
+  },
+
+  "categories": {
+    "commercial": "Uso Comercial",
+    "news_media": "Medios de Comunicación",
+    "educational": "Institución Educativa",
+    "general_public": "Público General",
+    "other": "Otro"
+  },
+
+  "status": {
+    "submitted": "Enviado",
+    "acknowledged": "Reconocido",
+    "in_progress": "En Proceso",
+    "pending_clarification": "Pendiente de Aclaración",
+    "completed": "Completado",
+    "denied": "Denegado",
+    "partially_granted": "Parcialmente Concedido",
+    "appealed": "Apelado"
+  },
+
+  "fees": {
+    "estimated_fees": "Tarifas Estimadas",
+    "no_fees_anticipated": "No se anticipan tarifas para esta solicitud",
+    "fee_breakdown": "Desglose de Tarifas",
+    "search_time": "Tiempo de Búsqueda",
+    "review_time": "Tiempo de Revisión",
+    "duplication": "Duplicación",
+    "total": "Total",
+    "per_hour": "por hora",
+    "per_page": "por página",
+    "fee_waiver": "Exención de Tarifas Disponible",
+    "fee_waiver_eligible": "Puede ser elegible para una exención de tarifas"
+  },
+
+  "appeal": {
+    "title": "Asistente de Apelaciones",
+    "analyze_response": "Analizar Respuesta",
+    "draft_appeal": "Redactar Apelación",
+    "exemptions_claimed": "Exenciones Reclamadas",
+    "appeal_grounds": "Fundamentos de Apelación",
+    "select_grounds": "Seleccionar Fundamentos de Apelación",
+    "review_letter": "Revisar Carta de Apelación",
+    "submit_appeal": "Enviar Apelación",
+    "assessment": "Evaluación",
+    "likelihood_success": "Probabilidad de Éxito",
+    "high": "Alta",
+    "medium": "Media",
+    "low": "Baja",
+    "not_recommended": "No Recomendado",
+    "frivolous_warning": "Esta apelación puede considerarse frívola",
+    "legal_disclaimer": "Esto es orientación informativa, no asesoramiento legal. Para casos complejos, considere consultar a un abogado."
+  },
+
+  "translation": {
+    "title": "Traducción",
+    "original_language": "Idioma Original",
+    "translated_to": "Traducido a",
+    "confidence": "Confianza",
+    "needs_review": "Necesita Revisión Profesional",
+    "auto_detected": "Detectado automáticamente",
+    "translate_request": "Traducir Mi Solicitud",
+    "prefer_language": "Idioma Preferido para Comunicaciones",
+    "translation_note": "Su solicitud ha sido traducida automáticamente. Se puede realizar una revisión profesional si es necesario.",
+    "languages_supported": "Admitimos solicitudes en 10 idiomas, incluidos español, chino, vietnamita, francés, árabe, filipino, coreano, ruso y portugués."
+  },
+
+  "messages": {
+    "request_submitted": "Su solicitud FOIA se ha enviado exitosamente.",
+    "confirmation_sent": "Se ha enviado un correo de confirmación a su dirección de correo electrónico.",
+    "request_not_found": "Solicitud no encontrada. Verifique su número de confirmación.",
+    "session_limit_reached": "Ha alcanzado el número máximo de sesiones para esta solicitud.",
+    "translation_failed": "La traducción falló. Intente nuevamente o envíe su solicitud en inglés.",
+    "please_wait": "Por favor espere mientras procesamos su solicitud..."
+  },
+
+  "help": {
+    "what_is_foia": "¿Qué es FOIA?",
+    "foia_explanation": "La Ley de Libertad de Información (FOIA) le otorga el derecho de solicitar acceso a los registros de las agencias federales.",
+    "how_to_file": "Cómo Presentar una Solicitud",
+    "processing_time": "Tiempo de Procesamiento",
+    "contact_us": "Contáctenos",
+    "legal_aid": "Recursos de Asistencia Legal Gratuita",
+    "faq": "Preguntas Frecuentes"
+  },
+
+  "validation": {
+    "required_field": "Este campo es requerido",
+    "invalid_email": "Por favor ingrese un correo electrónico válido",
+    "invalid_phone": "Por favor ingrese un número de teléfono válido",
+    "min_length": "La longitud mínima es {{min}} caracteres",
+    "max_length": "La longitud máxima es {{max}} caracteres",
+    "invalid_format": "Formato inválido"
+  }
+}

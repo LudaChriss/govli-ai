@@ -1,0 +1,139 @@
+{
+  "language_name": "Français",
+  "language_code": "fr",
+
+  "common": {
+    "submit": "Soumettre",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "back": "Retour",
+    "next": "Suivant",
+    "close": "Fermer",
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "confirm": "Confirmer",
+    "yes": "Oui",
+    "no": "Non",
+    "required": "Requis",
+    "optional": "Facultatif",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "download": "Télécharger",
+    "upload": "Téléverser",
+    "select_language": "Sélectionner la langue"
+  },
+
+  "foia": {
+    "title": "Portail de demandes FOIA",
+    "subtitle": "Système de demandes selon la Loi sur la liberté d'information",
+    "new_request": "Nouvelle demande",
+    "my_requests": "Mes demandes",
+    "track_request": "Suivre la demande",
+    "confirmation_number": "Numéro de confirmation",
+    "request_description": "Description de la demande",
+    "requester_category": "Catégorie du demandeur",
+    "contact_information": "Informations de contact",
+    "full_name": "Nom complet",
+    "email_address": "Adresse e-mail",
+    "phone_number": "Numéro de téléphone",
+    "mailing_address": "Adresse postale",
+    "organization": "Organisation",
+    "submit_request": "Soumettre la demande"
+  },
+
+  "categories": {
+    "commercial": "Usage commercial",
+    "news_media": "Médias",
+    "educational": "Établissement d'enseignement",
+    "general_public": "Grand public",
+    "other": "Autre"
+  },
+
+  "status": {
+    "submitted": "Soumis",
+    "acknowledged": "Accusé de réception",
+    "in_progress": "En cours",
+    "pending_clarification": "En attente de clarification",
+    "completed": "Terminé",
+    "denied": "Refusé",
+    "partially_granted": "Partiellement accordé",
+    "appealed": "Fait appel"
+  },
+
+  "fees": {
+    "estimated_fees": "Frais estimés",
+    "no_fees_anticipated": "Aucun frais prévu pour cette demande",
+    "fee_breakdown": "Détail des frais",
+    "search_time": "Temps de recherche",
+    "review_time": "Temps d'examen",
+    "duplication": "Duplication",
+    "total": "Total",
+    "per_hour": "par heure",
+    "per_page": "par page",
+    "fee_waiver": "Dispense de frais disponible",
+    "fee_waiver_eligible": "Vous pourriez être admissible à une dispense de frais"
+  },
+
+  "appeal": {
+    "title": "Assistant d'appel",
+    "analyze_response": "Analyser la réponse",
+    "draft_appeal": "Rédiger un appel",
+    "exemptions_claimed": "Exemptions revendiquées",
+    "appeal_grounds": "Motifs d'appel",
+    "select_grounds": "Sélectionner les motifs d'appel",
+    "review_letter": "Réviser la lettre d'appel",
+    "submit_appeal": "Soumettre l'appel",
+    "assessment": "Évaluation",
+    "likelihood_success": "Probabilité de succès",
+    "high": "Élevée",
+    "medium": "Moyenne",
+    "low": "Faible",
+    "not_recommended": "Non recommandé",
+    "frivolous_warning": "Cet appel pourrait être considéré comme frivole",
+    "legal_disclaimer": "Ceci est une orientation informative, pas un conseil juridique. Pour les cas complexes, envisagez de consulter un avocat."
+  },
+
+  "translation": {
+    "title": "Traduction",
+    "original_language": "Langue d'origine",
+    "translated_to": "Traduit en",
+    "confidence": "Confiance",
+    "needs_review": "Nécessite un examen professionnel",
+    "auto_detected": "Détecté automatiquement",
+    "translate_request": "Traduire ma demande",
+    "prefer_language": "Langue préférée pour les communications",
+    "translation_note": "Votre demande a été traduite automatiquement. Un examen professionnel peut être effectué si nécessaire.",
+    "languages_supported": "Nous prenons en charge les demandes dans 10 langues, dont l'espagnol, le chinois, le vietnamien, le français, l'arabe, le philippin, le coréen, le russe et le portugais."
+  },
+
+  "messages": {
+    "request_submitted": "Votre demande FOIA a été soumise avec succès.",
+    "confirmation_sent": "Un e-mail de confirmation a été envoyé à votre adresse e-mail.",
+    "request_not_found": "Demande introuvable. Veuillez vérifier votre numéro de confirmation.",
+    "session_limit_reached": "Vous avez atteint le nombre maximum de sessions pour cette demande.",
+    "translation_failed": "La traduction a échoué. Veuillez réessayer ou soumettre votre demande en anglais.",
+    "please_wait": "Veuillez patienter pendant que nous traitons votre demande..."
+  },
+
+  "help": {
+    "what_is_foia": "Qu'est-ce que la FOIA?",
+    "foia_explanation": "La Loi sur la liberté d'information (FOIA) vous donne le droit de demander l'accès aux documents des agences fédérales.",
+    "how_to_file": "Comment déposer une demande",
+    "processing_time": "Délai de traitement",
+    "contact_us": "Contactez-nous",
+    "legal_aid": "Ressources d'aide juridique gratuite",
+    "faq": "Questions fréquemment posées"
+  },
+
+  "validation": {
+    "required_field": "Ce champ est requis",
+    "invalid_email": "Veuillez entrer une adresse e-mail valide",
+    "invalid_phone": "Veuillez entrer un numéro de téléphone valide",
+    "min_length": "La longueur minimale est de {{min}} caractères",
+    "max_length": "La longueur maximale est de {{max}} caractères",
+    "invalid_format": "Format invalide"
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "language_name": "English",
+  "language_code": "en",
+
+  "common": {
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "back": "Back",
+    "next": "Next",
+    "close": "Close",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "confirm": "Confirm",
+    "yes": "Yes",
+    "no": "No",
+    "required": "Required",
+    "optional": "Optional",
+    "search": "Search",
+    "filter": "Filter",
+    "download": "Download",
+    "upload": "Upload",
+    "select_language": "Select Language"
+  },
+
+  "foia": {
+    "title": "FOIA Request Portal",
+    "subtitle": "Freedom of Information Act Request System",
+    "new_request": "New Request",
+    "my_requests": "My Requests",
+    "track_request": "Track Request",
+    "confirmation_number": "Confirmation Number",
+    "request_description": "Request Description",
+    "requester_category": "Requester Category",
+    "contact_information": "Contact Information",
+    "full_name": "Full Name",
+    "email_address": "Email Address",
+    "phone_number": "Phone Number",
+    "mailing_address": "Mailing Address",
+    "organization": "Organization",
+    "submit_request": "Submit Request"
+  },
+
+  "categories": {
+    "commercial": "Commercial Use",
+    "news_media": "News Media",
+    "educational": "Educational Institution",
+    "general_public": "General Public",
+    "other": "Other"
+  },
+
+  "status": {
+    "submitted": "Submitted",
+    "acknowledged": "Acknowledged",
+    "in_progress": "In Progress",
+    "pending_clarification": "Pending Clarification",
+    "completed": "Completed",
+    "denied": "Denied",
+    "partially_granted": "Partially Granted",
+    "appealed": "Appealed"
+  },
+
+  "fees": {
+    "estimated_fees": "Estimated Fees",
+    "no_fees_anticipated": "No fees anticipated for this request",
+    "fee_breakdown": "Fee Breakdown",
+    "search_time": "Search Time",
+    "review_time": "Review Time",
+    "duplication": "Duplication",
+    "total": "Total",
+    "per_hour": "per hour",
+    "per_page": "per page",
+    "fee_waiver": "Fee Waiver Available",
+    "fee_waiver_eligible": "You may be eligible for a fee waiver"
+  },
+
+  "appeal": {
+    "title": "Appeal Coach",
+    "analyze_response": "Analyze Response",
+    "draft_appeal": "Draft Appeal",
+    "exemptions_claimed": "Exemptions Claimed",
+    "appeal_grounds": "Appeal Grounds",
+    "select_grounds": "Select Appeal Grounds",
+    "review_letter": "Review Appeal Letter",
+    "submit_appeal": "Submit Appeal",
+    "assessment": "Assessment",
+    "likelihood_success": "Likelihood of Success",
+    "high": "High",
+    "medium": "Medium",
+    "low": "Low",
+    "not_recommended": "Not Recommended",
+    "frivolous_warning": "This appeal may be considered frivolous",
+    "legal_disclaimer": "This is informational guidance, not legal advice. For complex cases, consider consulting an attorney."
+  },
+
+  "translation": {
+    "title": "Translation",
+    "original_language": "Original Language",
+    "translated_to": "Translated to",
+    "confidence": "Confidence",
+    "needs_review": "Needs Professional Review",
+    "auto_detected": "Auto-detected",
+    "translate_request": "Translate My Request",
+    "prefer_language": "Preferred Language for Communications",
+    "translation_note": "Your request has been automatically translated. A professional review may be conducted if needed.",
+    "languages_supported": "We support requests in 10 languages including Spanish, Chinese, Vietnamese, French, Arabic, Filipino, Korean, Russian, and Portuguese."
+  },
+
+  "messages": {
+    "request_submitted": "Your FOIA request has been submitted successfully.",
+    "confirmation_sent": "A confirmation email has been sent to your email address.",
+    "request_not_found": "Request not found. Please check your confirmation number.",
+    "session_limit_reached": "You have reached the maximum number of sessions for this request.",
+    "translation_failed": "Translation failed. Please try again or submit your request in English.",
+    "please_wait": "Please wait while we process your request..."
+  },
+
+  "help": {
+    "what_is_foia": "What is FOIA?",
+    "foia_explanation": "The Freedom of Information Act (FOIA) gives you the right to request access to federal agency records.",
+    "how_to_file": "How to File a Request",
+    "processing_time": "Processing Time",
+    "contact_us": "Contact Us",
+    "legal_aid": "Free Legal Aid Resources",
+    "faq": "Frequently Asked Questions"
+  },
+
+  "validation": {
+    "required_field": "This field is required",
+    "invalid_email": "Please enter a valid email address",
+    "invalid_phone": "Please enter a valid phone number",
+    "min_length": "Minimum length is {{min}} characters",
+    "max_length": "Maximum length is {{max}} characters",
+    "invalid_format": "Invalid format"
+  }
+}

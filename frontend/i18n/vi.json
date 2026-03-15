@@ -1,0 +1,139 @@
+{
+  "language_name": "Tiếng Việt",
+  "language_code": "vi",
+
+  "common": {
+    "submit": "Gửi",
+    "cancel": "Hủy",
+    "save": "Lưu",
+    "delete": "Xóa",
+    "edit": "Chỉnh sửa",
+    "back": "Quay lại",
+    "next": "Tiếp theo",
+    "close": "Đóng",
+    "loading": "Đang tải...",
+    "error": "Lỗi",
+    "success": "Thành công",
+    "confirm": "Xác nhận",
+    "yes": "Có",
+    "no": "Không",
+    "required": "Bắt buộc",
+    "optional": "Tùy chọn",
+    "search": "Tìm kiếm",
+    "filter": "Lọc",
+    "download": "Tải xuống",
+    "upload": "Tải lên",
+    "select_language": "Chọn ngôn ngữ"
+  },
+
+  "foia": {
+    "title": "Cổng thông tin yêu cầu FOIA",
+    "subtitle": "Hệ thống yêu cầu theo Đạo luật Tự do Thông tin",
+    "new_request": "Yêu cầu mới",
+    "my_requests": "Yêu cầu của tôi",
+    "track_request": "Theo dõi yêu cầu",
+    "confirmation_number": "Số xác nhận",
+    "request_description": "Mô tả yêu cầu",
+    "requester_category": "Loại người yêu cầu",
+    "contact_information": "Thông tin liên hệ",
+    "full_name": "Họ và tên",
+    "email_address": "Địa chỉ email",
+    "phone_number": "Số điện thoại",
+    "mailing_address": "Địa chỉ nhận thư",
+    "organization": "Tổ chức",
+    "submit_request": "Gửi yêu cầu"
+  },
+
+  "categories": {
+    "commercial": "Sử dụng thương mại",
+    "news_media": "Phương tiện truyền thông",
+    "educational": "Cơ sở giáo dục",
+    "general_public": "Công chúng",
+    "other": "Khác"
+  },
+
+  "status": {
+    "submitted": "Đã gửi",
+    "acknowledged": "Đã xác nhận",
+    "in_progress": "Đang xử lý",
+    "pending_clarification": "Chờ làm rõ",
+    "completed": "Đã hoàn thành",
+    "denied": "Bị từ chối",
+    "partially_granted": "Chấp thuận một phần",
+    "appealed": "Đã kháng nghị"
+  },
+
+  "fees": {
+    "estimated_fees": "Phí ước tính",
+    "no_fees_anticipated": "Không có phí dự kiến cho yêu cầu này",
+    "fee_breakdown": "Chi tiết phí",
+    "search_time": "Thời gian tìm kiếm",
+    "review_time": "Thời gian xem xét",
+    "duplication": "Sao chép",
+    "total": "Tổng cộng",
+    "per_hour": "mỗi giờ",
+    "per_page": "mỗi trang",
+    "fee_waiver": "Miễn phí có sẵn",
+    "fee_waiver_eligible": "Bạn có thể đủ điều kiện để được miễn phí"
+  },
+
+  "appeal": {
+    "title": "Trợ lý kháng nghị",
+    "analyze_response": "Phân tích phản hồi",
+    "draft_appeal": "Soạn thảo kháng nghị",
+    "exemptions_claimed": "Miễn trừ được yêu cầu",
+    "appeal_grounds": "Lý do kháng nghị",
+    "select_grounds": "Chọn lý do kháng nghị",
+    "review_letter": "Xem xét thư kháng nghị",
+    "submit_appeal": "Gửi kháng nghị",
+    "assessment": "Đánh giá",
+    "likelihood_success": "Khả năng thành công",
+    "high": "Cao",
+    "medium": "Trung bình",
+    "low": "Thấp",
+    "not_recommended": "Không khuyến nghị",
+    "frivolous_warning": "Kháng nghị này có thể được coi là vô căn cứ",
+    "legal_disclaimer": "Đây là hướng dẫn thông tin, không phải tư vấn pháp lý. Đối với các trường hợp phức tạp, hãy xem xét tham khảo luật sư."
+  },
+
+  "translation": {
+    "title": "Dịch thuật",
+    "original_language": "Ngôn ngữ gốc",
+    "translated_to": "Dịch sang",
+    "confidence": "Độ tin cậy",
+    "needs_review": "Cần xem xét chuyên nghiệp",
+    "auto_detected": "Tự động phát hiện",
+    "translate_request": "Dịch yêu cầu của tôi",
+    "prefer_language": "Ngôn ngữ ưu tiên cho liên lạc",
+    "translation_note": "Yêu cầu của bạn đã được dịch tự động. Có thể tiến hành xem xét chuyên nghiệp nếu cần.",
+    "languages_supported": "Chúng tôi hỗ trợ yêu cầu bằng 10 ngôn ngữ bao gồm tiếng Tây Ban Nha, Trung Quốc, Việt, Pháp, Ả Rập, Philippines, Hàn Quốc, Nga và Bồ Đào Nha."
+  },
+
+  "messages": {
+    "request_submitted": "Yêu cầu FOIA của bạn đã được gửi thành công.",
+    "confirmation_sent": "Email xác nhận đã được gửi đến địa chỉ email của bạn.",
+    "request_not_found": "Không tìm thấy yêu cầu. Vui lòng kiểm tra số xác nhận của bạn.",
+    "session_limit_reached": "Bạn đã đạt đến số lượng phiên tối đa cho yêu cầu này.",
+    "translation_failed": "Dịch không thành công. Vui lòng thử lại hoặc gửi yêu cầu bằng tiếng Anh.",
+    "please_wait": "Vui lòng đợi trong khi chúng tôi xử lý yêu cầu của bạn..."
+  },
+
+  "help": {
+    "what_is_foia": "FOIA là gì?",
+    "foia_explanation": "Đạo luật Tự do Thông tin (FOIA) cấp cho bạn quyền yêu cầu truy cập vào hồ sơ của cơ quan liên bang.",
+    "how_to_file": "Cách nộp yêu cầu",
+    "processing_time": "Thời gian xử lý",
+    "contact_us": "Liên hệ chúng tôi",
+    "legal_aid": "Nguồn trợ giúp pháp lý miễn phí",
+    "faq": "Câu hỏi thường gặp"
+  },
+
+  "validation": {
+    "required_field": "Trường này là bắt buộc",
+    "invalid_email": "Vui lòng nhập địa chỉ email hợp lệ",
+    "invalid_phone": "Vui lòng nhập số điện thoại hợp lệ",
+    "min_length": "Độ dài tối thiểu là {{min}} ký tự",
+    "max_length": "Độ dài tối đa là {{max}} ký tự",
+    "invalid_format": "Định dạng không hợp lệ"
+  }
+}

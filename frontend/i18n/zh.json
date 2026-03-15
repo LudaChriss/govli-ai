@@ -1,0 +1,139 @@
+{
+  "language_name": "中文",
+  "language_code": "zh",
+
+  "common": {
+    "submit": "提交",
+    "cancel": "取消",
+    "save": "保存",
+    "delete": "删除",
+    "edit": "编辑",
+    "back": "返回",
+    "next": "下一步",
+    "close": "关闭",
+    "loading": "加载中...",
+    "error": "错误",
+    "success": "成功",
+    "confirm": "确认",
+    "yes": "是",
+    "no": "否",
+    "required": "必填",
+    "optional": "可选",
+    "search": "搜索",
+    "filter": "筛选",
+    "download": "下载",
+    "upload": "上传",
+    "select_language": "选择语言"
+  },
+
+  "foia": {
+    "title": "FOIA 请求门户",
+    "subtitle": "信息自由法请求系统",
+    "new_request": "新请求",
+    "my_requests": "我的请求",
+    "track_request": "跟踪请求",
+    "confirmation_number": "确认号码",
+    "request_description": "请求描述",
+    "requester_category": "请求者类别",
+    "contact_information": "联系信息",
+    "full_name": "全名",
+    "email_address": "电子邮件地址",
+    "phone_number": "电话号码",
+    "mailing_address": "邮寄地址",
+    "organization": "组织",
+    "submit_request": "提交请求"
+  },
+
+  "categories": {
+    "commercial": "商业用途",
+    "news_media": "新闻媒体",
+    "educational": "教育机构",
+    "general_public": "普通公众",
+    "other": "其他"
+  },
+
+  "status": {
+    "submitted": "已提交",
+    "acknowledged": "已确认",
+    "in_progress": "处理中",
+    "pending_clarification": "待澄清",
+    "completed": "已完成",
+    "denied": "已拒绝",
+    "partially_granted": "部分批准",
+    "appealed": "已上诉"
+  },
+
+  "fees": {
+    "estimated_fees": "预估费用",
+    "no_fees_anticipated": "此请求预计不收费",
+    "fee_breakdown": "费用明细",
+    "search_time": "搜索时间",
+    "review_time": "审查时间",
+    "duplication": "复制",
+    "total": "总计",
+    "per_hour": "每小时",
+    "per_page": "每页",
+    "fee_waiver": "可免费",
+    "fee_waiver_eligible": "您可能有资格获得费用豁免"
+  },
+
+  "appeal": {
+    "title": "上诉助手",
+    "analyze_response": "分析回复",
+    "draft_appeal": "起草上诉",
+    "exemptions_claimed": "声称的豁免",
+    "appeal_grounds": "上诉理由",
+    "select_grounds": "选择上诉理由",
+    "review_letter": "审查上诉信",
+    "submit_appeal": "提交上诉",
+    "assessment": "评估",
+    "likelihood_success": "成功可能性",
+    "high": "高",
+    "medium": "中",
+    "low": "低",
+    "not_recommended": "不推荐",
+    "frivolous_warning": "此上诉可能被视为无理取闹",
+    "legal_disclaimer": "这是信息指导，不是法律建议。对于复杂案件，请考虑咨询律师。"
+  },
+
+  "translation": {
+    "title": "翻译",
+    "original_language": "原始语言",
+    "translated_to": "翻译为",
+    "confidence": "置信度",
+    "needs_review": "需要专业审查",
+    "auto_detected": "自动检测",
+    "translate_request": "翻译我的请求",
+    "prefer_language": "通信首选语言",
+    "translation_note": "您的请求已自动翻译。如有需要，可能会进行专业审查。",
+    "languages_supported": "我们支持 10 种语言的请求，包括西班牙语、中文、越南语、法语、阿拉伯语、菲律宾语、韩语、俄语和葡萄牙语。"
+  },
+
+  "messages": {
+    "request_submitted": "您的 FOIA 请求已成功提交。",
+    "confirmation_sent": "确认电子邮件已发送到您的电子邮件地址。",
+    "request_not_found": "未找到请求。请检查您的确认号码。",
+    "session_limit_reached": "您已达到此请求的最大会话数。",
+    "translation_failed": "翻译失败。请重试或以英语提交您的请求。",
+    "please_wait": "请稍候，我们正在处理您的请求..."
+  },
+
+  "help": {
+    "what_is_foia": "什么是 FOIA？",
+    "foia_explanation": "信息自由法 (FOIA) 赋予您请求访问联邦机构记录的权利。",
+    "how_to_file": "如何提交请求",
+    "processing_time": "处理时间",
+    "contact_us": "联系我们",
+    "legal_aid": "免费法律援助资源",
+    "faq": "常见问题"
+  },
+
+  "validation": {
+    "required_field": "此字段为必填项",
+    "invalid_email": "请输入有效的电子邮件地址",
+    "invalid_phone": "请输入有效的电话号码",
+    "min_length": "最小长度为 {{min}} 个字符",
+    "max_length": "最大长度为 {{max}} 个字符",
+    "invalid_format": "格式无效"
+  }
+}

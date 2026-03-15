@@ -1,0 +1,139 @@
+{
+  "language_name": "Filipino (Tagalog)",
+  "language_code": "tl",
+
+  "common": {
+    "submit": "Isumite",
+    "cancel": "Kanselahin",
+    "save": "I-save",
+    "delete": "Tanggalin",
+    "edit": "I-edit",
+    "back": "Bumalik",
+    "next": "Susunod",
+    "close": "Isara",
+    "loading": "Naglo-load...",
+    "error": "Error",
+    "success": "Tagumpay",
+    "confirm": "Kumpirmahin",
+    "yes": "Oo",
+    "no": "Hindi",
+    "required": "Kinakailangan",
+    "optional": "Opsyonal",
+    "search": "Maghanap",
+    "filter": "I-filter",
+    "download": "I-download",
+    "upload": "Mag-upload",
+    "select_language": "Pumili ng Wika"
+  },
+
+  "foia": {
+    "title": "FOIA Request Portal",
+    "subtitle": "Sistema ng Kahilingan sa Batas ng Kalayaan sa Impormasyon",
+    "new_request": "Bagong Kahilingan",
+    "my_requests": "Aking mga Kahilingan",
+    "track_request": "Subaybayan ang Kahilingan",
+    "confirmation_number": "Numero ng Kumpirmasyon",
+    "request_description": "Paglalarawan ng Kahilingan",
+    "requester_category": "Kategorya ng Humihiling",
+    "contact_information": "Impormasyon sa Pakikipag-ugnayan",
+    "full_name": "Buong Pangalan",
+    "email_address": "Email Address",
+    "phone_number": "Numero ng Telepono",
+    "mailing_address": "Address para sa Koreo",
+    "organization": "Organisasyon",
+    "submit_request": "Isumite ang Kahilingan"
+  },
+
+  "categories": {
+    "commercial": "Paggamit sa Komersyo",
+    "news_media": "Media ng Balita",
+    "educational": "Institusyong Pang-edukasyon",
+    "general_public": "Pangkalahatang Publiko",
+    "other": "Iba pa"
+  },
+
+  "status": {
+    "submitted": "Naisumite na",
+    "acknowledged": "Kinikilala",
+    "in_progress": "Isinasagawa",
+    "pending_clarification": "Naghihintay ng Paglilinaw",
+    "completed": "Nakumpleto",
+    "denied": "Tinanggihan",
+    "partially_granted": "Bahagyang Ipinagkaloob",
+    "appealed": "Nag-apela"
+  },
+
+  "fees": {
+    "estimated_fees": "Tinantyang Bayad",
+    "no_fees_anticipated": "Walang inaasahang bayad para sa kahilingang ito",
+    "fee_breakdown": "Detalye ng Bayad",
+    "search_time": "Oras ng Paghahanap",
+    "review_time": "Oras ng Pagsusuri",
+    "duplication": "Pagkopya",
+    "total": "Kabuuan",
+    "per_hour": "bawat oras",
+    "per_page": "bawat pahina",
+    "fee_waiver": "May Available na Exemption sa Bayad",
+    "fee_waiver_eligible": "Maaaring kwalipikado ka para sa exemption sa bayad"
+  },
+
+  "appeal": {
+    "title": "Tagapayo sa Apela",
+    "analyze_response": "Pag-aralan ang Tugon",
+    "draft_appeal": "Gumawa ng Apela",
+    "exemptions_claimed": "Mga Exemption na Inangkin",
+    "appeal_grounds": "Mga Batayan ng Apela",
+    "select_grounds": "Pumili ng mga Batayan ng Apela",
+    "review_letter": "Suriin ang Liham ng Apela",
+    "submit_appeal": "Isumite ang Apela",
+    "assessment": "Pagsusuri",
+    "likelihood_success": "Posibilidad ng Tagumpay",
+    "high": "Mataas",
+    "medium": "Katamtaman",
+    "low": "Mababa",
+    "not_recommended": "Hindi Inirerekomenda",
+    "frivolous_warning": "Ang apelang ito ay maaaring ituring na walang saysay",
+    "legal_disclaimer": "Ito ay impormasyon lamang, hindi legal na payo. Para sa mga kumplikadong kaso, konsultahin ang abogado."
+  },
+
+  "translation": {
+    "title": "Pagsasalin",
+    "original_language": "Orihinal na Wika",
+    "translated_to": "Isinalin sa",
+    "confidence": "Kumpiyansa",
+    "needs_review": "Kailangan ng Propesyonal na Pagsusuri",
+    "auto_detected": "Awtomatikong natukoy",
+    "translate_request": "Isalin ang Aking Kahilingan",
+    "prefer_language": "Ginustong Wika para sa mga Komunikasyon",
+    "translation_note": "Ang iyong kahilingan ay awtomatikong naisalin. Maaaring isagawa ang propesyonal na pagsusuri kung kinakailangan.",
+    "languages_supported": "Sumusuporta kami ng mga kahilingan sa 10 wika kabilang ang Espanyol, Tsino, Vietnamese, Pranses, Arabic, Filipino, Korean, Russian, at Portuguese."
+  },
+
+  "messages": {
+    "request_submitted": "Matagumpay na naisumite ang iyong FOIA na kahilingan.",
+    "confirmation_sent": "Isang email ng kumpirmasyon ay naipadala sa iyong email address.",
+    "request_not_found": "Hindi natagpuan ang kahilingan. Pakisuri ang iyong numero ng kumpirmasyon.",
+    "session_limit_reached": "Naabot mo na ang maximum na bilang ng mga session para sa kahilingang ito.",
+    "translation_failed": "Nabigo ang pagsasalin. Pakisubukan muli o isumite ang iyong kahilingan sa Ingles.",
+    "please_wait": "Pakihintay habang pinoproseso namin ang iyong kahilingan..."
+  },
+
+  "help": {
+    "what_is_foia": "Ano ang FOIA?",
+    "foia_explanation": "Ang Batas ng Kalayaan sa Impormasyon (FOIA) ay nagbibigay sa iyo ng karapatan na humiling ng access sa mga talaan ng pederal na ahensya.",
+    "how_to_file": "Paano Mag-file ng Kahilingan",
+    "processing_time": "Oras ng Pagproseso",
+    "contact_us": "Makipag-ugnayan sa Amin",
+    "legal_aid": "Libreng Legal Aid Resources",
+    "faq": "Mga Madalas Itanong"
+  },
+
+  "validation": {
+    "required_field": "Kinakailangan ang field na ito",
+    "invalid_email": "Pakipasok ang wastong email address",
+    "invalid_phone": "Pakipasok ang wastong numero ng telepono",
+    "min_length": "Ang minimum na haba ay {{min}} na mga character",
+    "max_length": "Ang maximum na haba ay {{max}} na mga character",
+    "invalid_format": "Invalid na format"
+  }
+}

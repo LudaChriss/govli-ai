@@ -1,0 +1,139 @@
+{
+  "language_name": "العربية",
+  "language_code": "ar",
+
+  "common": {
+    "submit": "إرسال",
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "back": "رجوع",
+    "next": "التالي",
+    "close": "إغلاق",
+    "loading": "جارٍ التحميل...",
+    "error": "خطأ",
+    "success": "نجح",
+    "confirm": "تأكيد",
+    "yes": "نعم",
+    "no": "لا",
+    "required": "مطلوب",
+    "optional": "اختياري",
+    "search": "بحث",
+    "filter": "تصفية",
+    "download": "تنزيل",
+    "upload": "تحميل",
+    "select_language": "اختر اللغة"
+  },
+
+  "foia": {
+    "title": "بوابة طلبات FOIA",
+    "subtitle": "نظام طلبات قانون حرية المعلومات",
+    "new_request": "طلب جديد",
+    "my_requests": "طلباتي",
+    "track_request": "تتبع الطلب",
+    "confirmation_number": "رقم التأكيد",
+    "request_description": "وصف الطلب",
+    "requester_category": "فئة مقدم الطلب",
+    "contact_information": "معلومات الاتصال",
+    "full_name": "الاسم الكامل",
+    "email_address": "عنوان البريد الإلكتروني",
+    "phone_number": "رقم الهاتف",
+    "mailing_address": "العنوان البريدي",
+    "organization": "المنظمة",
+    "submit_request": "إرسال الطلب"
+  },
+
+  "categories": {
+    "commercial": "الاستخدام التجاري",
+    "news_media": "وسائل الإعلام",
+    "educational": "مؤسسة تعليمية",
+    "general_public": "الجمهور العام",
+    "other": "أخرى"
+  },
+
+  "status": {
+    "submitted": "تم الإرسال",
+    "acknowledged": "تم الإقرار",
+    "in_progress": "قيد التنفيذ",
+    "pending_clarification": "في انتظار التوضيح",
+    "completed": "مكتمل",
+    "denied": "مرفوض",
+    "partially_granted": "موافقة جزئية",
+    "appealed": "تم الاستئناف"
+  },
+
+  "fees": {
+    "estimated_fees": "الرسوم المقدرة",
+    "no_fees_anticipated": "لا رسوم متوقعة لهذا الطلب",
+    "fee_breakdown": "تفاصيل الرسوم",
+    "search_time": "وقت البحث",
+    "review_time": "وقت المراجعة",
+    "duplication": "النسخ",
+    "total": "المجموع",
+    "per_hour": "في الساعة",
+    "per_page": "في الصفحة",
+    "fee_waiver": "إعفاء من الرسوم متاح",
+    "fee_waiver_eligible": "قد تكون مؤهلاً للحصول على إعفاء من الرسوم"
+  },
+
+  "appeal": {
+    "title": "مساعد الاستئناف",
+    "analyze_response": "تحليل الرد",
+    "draft_appeal": "صياغة الاستئناف",
+    "exemptions_claimed": "الإعفاءات المطالب بها",
+    "appeal_grounds": "أسباب الاستئناف",
+    "select_grounds": "اختر أسباب الاستئناف",
+    "review_letter": "مراجعة خطاب الاستئناف",
+    "submit_appeal": "إرسال الاستئناف",
+    "assessment": "التقييم",
+    "likelihood_success": "احتمالية النجاح",
+    "high": "عالية",
+    "medium": "متوسطة",
+    "low": "منخفضة",
+    "not_recommended": "غير موصى به",
+    "frivolous_warning": "قد يعتبر هذا الاستئناف تافهًا",
+    "legal_disclaimer": "هذا دليل إعلامي وليس استشارة قانونية. بالنسبة للحالات المعقدة، فكر في استشارة محامٍ."
+  },
+
+  "translation": {
+    "title": "الترجمة",
+    "original_language": "اللغة الأصلية",
+    "translated_to": "مترجم إلى",
+    "confidence": "الثقة",
+    "needs_review": "يحتاج إلى مراجعة مهنية",
+    "auto_detected": "تم الكشف تلقائيًا",
+    "translate_request": "ترجمة طلبي",
+    "prefer_language": "اللغة المفضلة للاتصالات",
+    "translation_note": "تمت ترجمة طلبك تلقائيًا. قد يتم إجراء مراجعة مهنية إذا لزم الأمر.",
+    "languages_supported": "ندعم الطلبات بـ 10 لغات بما في ذلك الإسبانية والصينية والفيتنامية والفرنسية والعربية والفلبينية والكورية والروسية والبرتغالية."
+  },
+
+  "messages": {
+    "request_submitted": "تم إرسال طلب FOIA الخاص بك بنجاح.",
+    "confirmation_sent": "تم إرسال بريد إلكتروني للتأكيد إلى عنوان بريدك الإلكتروني.",
+    "request_not_found": "الطلب غير موجود. يرجى التحقق من رقم التأكيد الخاص بك.",
+    "session_limit_reached": "لقد وصلت إلى الحد الأقصى لعدد الجلسات لهذا الطلب.",
+    "translation_failed": "فشلت الترجمة. يرجى المحاولة مرة أخرى أو إرسال طلبك باللغة الإنجليزية.",
+    "please_wait": "يرجى الانتظار بينما نعالج طلبك..."
+  },
+
+  "help": {
+    "what_is_foia": "ما هو FOIA؟",
+    "foia_explanation": "يمنحك قانون حرية المعلومات (FOIA) الحق في طلب الوصول إلى سجلات الوكالات الفيدرالية.",
+    "how_to_file": "كيفية تقديم طلب",
+    "processing_time": "وقت المعالجة",
+    "contact_us": "اتصل بنا",
+    "legal_aid": "موارد المساعدة القانونية المجانية",
+    "faq": "الأسئلة المتداولة"
+  },
+
+  "validation": {
+    "required_field": "هذا الحقل مطلوب",
+    "invalid_email": "يرجى إدخال عنوان بريد إلكتروني صالح",
+    "invalid_phone": "يرجى إدخال رقم هاتف صالح",
+    "min_length": "الحد الأدنى للطول هو {{min}} حرفًا",
+    "max_length": "الحد الأقصى للطول هو {{max}} حرفًا",
+    "invalid_format": "تنسيق غير صالح"
+  }
+}
