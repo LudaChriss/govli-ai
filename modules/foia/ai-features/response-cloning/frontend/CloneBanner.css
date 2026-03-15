@@ -1,0 +1,64 @@
+.clone-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+  border: 2px solid #4CAF50;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.2);
+}
+
+.clone-banner-icon {
+  font-size: 32px;
+}
+
+.clone-banner-content {
+  flex: 1;
+}
+
+.clone-banner-title {
+  font-weight: 600;
+  color: #2E7D32;
+  margin-bottom: 4px;
+}
+
+.clone-banner-message {
+  color: #1B5E20;
+  font-size: 14px;
+}
+
+.clone-banner-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.clone-banner-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.clone-banner-btn-primary {
+  background: #4CAF50;
+  color: white;
+}
+
+.clone-banner-btn-primary:hover {
+  background: #45A049;
+  transform: translateY(-1px);
+}
+
+.clone-banner-btn-secondary {
+  background: white;
+  color: #4CAF50;
+  border: 1px solid #4CAF50;
+}
+
+.clone-banner-btn-secondary:hover {
+  background: #F1F8E9;
+}
