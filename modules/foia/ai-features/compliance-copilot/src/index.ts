@@ -1,4 +1,9 @@
-// @govli/foia-compliance-copilot
-// Built by Govli AI FOIA Build Guide v2/v3
+/**
+ * AI-14: Compliance Copilot Module
+ *
+ * Conversational AI assistant for FOIA officers with jurisdiction-specific guidance
+ */
 
-export {};
+export { CopilotService } from './services/copilotService';
+export { setDatabasePool } from './handlers';
+export { default as copilotRoutes } from './routes';
