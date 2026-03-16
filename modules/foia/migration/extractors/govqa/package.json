@@ -1,11 +1,41 @@
 {
   "name": "@govli/foia-migration-govqa",
   "version": "0.1.0",
+  "description": "CLI tool for extracting and migrating data from GovQA to Govli",
   "private": true,
-  "main": "src/index.ts",
+  "main": "dist/index.js",
+  "bin": {
+    "govli-migrate-govqa": "./dist/cli.js"
+  },
   "scripts": {
     "build": "tsc",
     "test": "jest",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "cli": "ts-node src/cli.ts"
+  },
+  "keywords": [
+    "govqa",
+    "foia",
+    "migration",
+    "cli"
+  ],
+  "author": "Govli",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@types/inquirer": "^9.0.7",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.24",
+    "@types/cli-progress": "^3.11.5",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "axios": "^1.6.7",
+    "cli-progress": "^3.12.0",
+    "commander": "^12.0.0",
+    "inquirer": "^9.2.15",
+    "chalk": "^4.1.2"
   }
 }

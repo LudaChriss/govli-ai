@@ -1,1 +1,31 @@
-{}
+{
+  "govqa": {
+    "govqa_api_url": "https://yourdomain.govqa.com/api",
+    "govqa_username": "your-username",
+    "govqa_password": "your-password",
+    "govqa_api_key": "optional-api-key"
+  },
+  "govli": {
+    "govli_api_url": "https://api.govli.ai",
+    "govli_migration_key": "your-migration-api-key",
+    "tenant_id": "your-tenant-id"
+  },
+  "status_mapping": {
+    "open": "SUBMITTED",
+    "new": "SUBMITTED",
+    "submitted": "SUBMITTED",
+    "pending": "IN_PROGRESS",
+    "in progress": "IN_PROGRESS",
+    "processing": "IN_PROGRESS",
+    "assigned": "IN_PROGRESS",
+    "closed": "CLOSED",
+    "completed": "CLOSED",
+    "denied": "DENIED",
+    "rejected": "DENIED",
+    "withdrawn": "WITHDRAWN",
+    "cancelled": "WITHDRAWN"
+  },
+  "batch_size": 500,
+  "output_dir": "./migration-data/",
+  "resume_from_checkpoint": true
+}
