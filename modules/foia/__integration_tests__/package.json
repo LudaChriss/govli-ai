@@ -1,0 +1,22 @@
+{
+  "name": "@govli/foia-integration-tests",
+  "version": "3.0.0",
+  "description": "v3.0 Full Integration Tests for Govli FOIA System",
+  "private": true,
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch",
+    "test:verbose": "jest --verbose"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.24",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "pg": "^8.11.3"
+  }
+}
