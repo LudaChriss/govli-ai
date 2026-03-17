@@ -1,10 +1,11 @@
 import React from 'react';
 
 export interface StatusBadgeProps {
-  children: React.ReactNode;
+  status?: any;
+  children?: React.ReactNode;
   variant?: string;
 }
 
-export function StatusBadge({ children, variant = 'primary' }: StatusBadgeProps) {
-  return <span className={variant}>{children}</span>;
+export function StatusBadge({ status, children, variant = 'primary' }: StatusBadgeProps) {
+  return <span className={variant}>{status || children}</span>;
 }

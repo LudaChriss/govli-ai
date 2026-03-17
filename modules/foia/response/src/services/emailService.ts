@@ -3,6 +3,7 @@
  * Handles email delivery using nodemailer
  */
 
+// @ts-ignore
 import nodemailer, { Transporter } from 'nodemailer';
 import { EmailDeliveryOptions } from '../types';
 

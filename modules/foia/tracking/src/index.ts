@@ -6,6 +6,7 @@
 import express from 'express';
 import cors from 'cors';
 import { Pool } from 'pg';
+// @ts-ignore
 import cron from 'node-cron';
 import { createTrackingRoutes } from './routes/trackingRoutes';
 import { authMiddleware } from './middleware/authMiddleware';

@@ -15,7 +15,7 @@ jest.mock('@govli/foia-shared', () => ({
 }));
 
 describe('AI-3: Pattern Analysis Service', () => {
-  let mockPool: jest.Mocked<Pool>;
+  let mockPool: any;
   let patternService: PatternService;
   let mockAIClient: any;
 
@@ -71,7 +71,7 @@ describe('AI-3: Pattern Analysis Service', () => {
   beforeEach(() => {
     // Create mock database pool
     mockPool = {
-      query: jest.fn(),
+      query: jest.fn().mockResolvedValue({ rows: [] }),
       connect: jest.fn(),
       end: jest.fn(),
       on: jest.fn()
@@ -316,7 +316,7 @@ describe('AI-3: Pattern Analysis Service', () => {
 });
 
 describe('AI-11: Proactive Disclosure Service', () => {
-  let mockPool: jest.Mocked<Pool>;
+  let mockPool: any;
   let proactiveService: ProactiveService;
   let mockAIClient: any;
 
@@ -325,7 +325,7 @@ describe('AI-11: Proactive Disclosure Service', () => {
 
   beforeEach(() => {
     mockPool = {
-      query: jest.fn(),
+      query: jest.fn().mockResolvedValue({ rows: [] }),
       connect: jest.fn(),
       end: jest.fn(),
       on: jest.fn()

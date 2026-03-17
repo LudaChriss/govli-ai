@@ -16,7 +16,7 @@
   ],
   "scripts": {
     "foia:dev": "docker-compose up -d && echo FOIA services ready",
-    "foia:verify": "tsc --noEmit -p modules/foia/tsconfig.json",
+    "foia:verify": "tsc --noEmit -p modules/foia/tsconfig.json && tsc --noEmit -p modules/foia/admin/tsconfig.json && tsc --noEmit -p modules/foia/portal/tsconfig.json",
     "foia:test": "jest --config modules/foia/jest.config.ts",
     "foia:lint": "eslint modules/foia/ --ext .ts,.tsx",
     "foia:migrate": "node-pg-migrate -m modules/foia/migrations",

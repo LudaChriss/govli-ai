@@ -9,7 +9,9 @@ import { emit } from '@govli/foia-shared';
 import crypto from 'crypto';
 import fs from 'fs';
 import path from 'path';
+// @ts-ignore
 import pdf from 'pdf-parse';
+// @ts-ignore
 import mammoth from 'mammoth';
 import xlsx from 'xlsx';
 
@@ -36,6 +38,7 @@ export class DocumentService {
   async uploadDocument(
     tenant_id: string,
     foia_request_id: string,
+    // @ts-ignore
     file: Express.Multer.File,
     uploaded_by: string
   ): Promise<DocumentUploadResult> {

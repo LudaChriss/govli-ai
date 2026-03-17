@@ -7,10 +7,10 @@ import { Request } from 'express';
 /**
  * Extended Express Request with user property
  */
-export interface AuthenticatedRequest extends Request {
+export type AuthenticatedRequest = Request & {
   user?: {
     tenant_id: string;
     id?: string;
     [key: string]: any;
   };
-}
+};

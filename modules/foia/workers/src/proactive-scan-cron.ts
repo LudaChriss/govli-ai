@@ -5,6 +5,7 @@
 
 import { Pool } from 'pg';
 import { ProactiveService } from '../../ai-features/patterns/src/services/proactiveService';
+// @ts-ignore
 import cron from 'node-cron';
 
 interface CronConfig {

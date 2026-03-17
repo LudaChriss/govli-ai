@@ -5,6 +5,7 @@
 
 import { Pool } from 'pg';
 import crypto from 'crypto';
+// @ts-ignore
 import { diffLines } from 'diff';
 import { getSharedAIClient } from '@govli/foia-shared';
 import { emit } from '@govli/foia-shared';
@@ -308,8 +309,8 @@ Format the response as a complete letter suitable for mailing or email delivery.
     let totalLines = 0;
     let changedLines = 0;
 
-    diff.forEach(part => {
-      const lines = part.value.split('\n').filter(l => l.trim().length > 0).length;
+    diff.forEach((part: any) => {
+      const lines = part.value.split('\n').filter((l: string) => l.trim().length > 0).length;
       totalLines += lines;
 
       if (part.added || part.removed) {

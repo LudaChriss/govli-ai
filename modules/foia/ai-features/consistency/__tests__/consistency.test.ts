@@ -22,7 +22,7 @@ jest.mock('@govli/foia-shared', () => ({
 import { getSharedAIClient } from '@govli/foia-shared';
 
 describe('AI-4: Exemption Consistency Analyzer', () => {
-  let mockDb: jest.Mocked<Pool>;
+  let mockDb: any;
   let mockAIClient: any;
   let consistencyService: ConsistencyService;
 
@@ -34,7 +34,7 @@ describe('AI-4: Exemption Consistency Analyzer', () => {
   beforeEach(() => {
     // Mock database pool
     mockDb = {
-      query: jest.fn(),
+      query: jest.fn().mockResolvedValue({ rows: [] }),
       connect: jest.fn(),
       end: jest.fn(),
       on: jest.fn()

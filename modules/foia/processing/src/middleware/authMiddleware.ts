@@ -4,7 +4,7 @@
 
 import { Request } from 'express';
 
-export interface AuthRequest extends Request {
+export type AuthRequest = Request & {
   auth?: {
     tenant_id: string;
     user_id: string;
@@ -12,4 +12,5 @@ export interface AuthRequest extends Request {
     email?: string;
     name?: string;
   };
-}
+  file?: any;
+};

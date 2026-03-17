@@ -21,7 +21,7 @@ jest.mock('@govli/foia-shared', () => ({
 import { getSharedAIClient } from '@govli/foia-shared';
 
 describe('AI-5: Vaughn Index Generator', () => {
-  let mockDb: jest.Mocked<Pool>;
+  let mockDb: any;
   let mockAIClient: any;
   let vaughnService: VaughnService;
   let documentGenerator: VaughnDocumentGenerator;
@@ -35,7 +35,7 @@ describe('AI-5: Vaughn Index Generator', () => {
   beforeEach(() => {
     // Mock database pool
     mockDb = {
-      query: jest.fn(),
+      query: jest.fn().mockResolvedValue({ rows: [] }),
       connect: jest.fn(),
       end: jest.fn(),
       on: jest.fn()
