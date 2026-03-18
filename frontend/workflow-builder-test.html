@@ -75,7 +75,7 @@
         }
 
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #3b82f6, #1e40af);
+            background: linear-gradient(180deg, #3b82f6, #1e56b0);
             border-radius: 10px;
         }
 
@@ -132,7 +132,7 @@
                     </div>
                     <button
                         id="generateBtn"
-                        class="bg-gradient-to-r from-blue-500 to-purple-600 px-6 py-2 rounded-lg hover:shadow-lg transition-all font-medium"
+                        class="bg-gradient-to-r from-blue-500 to-[#4c3bcf] px-6 py-2 rounded-lg hover:shadow-lg transition-all font-medium"
                         aria-label="Generate workflow with AI">
                         <i class="fas fa-magic mr-2"></i>Generate Workflow
                     </button>
@@ -256,7 +256,7 @@
 
             // Routing & Assignment
             { id: 'auto-route', name: 'Auto-Route', icon: 'fa-route', color: 'from-purple-400 to-purple-500', category: 'routing', description: 'Automatically route by rules' },
-            { id: 'assignment', name: 'Task Assignment', icon: 'fa-user-tag', color: 'from-purple-500 to-purple-600', category: 'routing', description: 'Assign to user or team' },
+            { id: 'assignment', name: 'Task Assignment', icon: 'fa-user-tag', color: 'from-purple-500 to-[#4c3bcf]', category: 'routing', description: 'Assign to user or team' },
             { id: 'load-balance', name: 'Load Balancing', icon: 'fa-balance-scale', color: 'from-violet-500 to-purple-500', category: 'routing', description: 'Distribute workload evenly' },
 
             // Approvals & Reviews
@@ -293,7 +293,7 @@
             { id: 'api-call', name: 'API Request', icon: 'fa-exchange-alt', color: 'from-violet-400 to-purple-500', category: 'integration', description: 'Call external API' },
             { id: 'webhook', name: 'Webhook Trigger', icon: 'fa-link', color: 'from-purple-500 to-fuchsia-500', category: 'integration', description: 'Trigger webhook event' },
             { id: 'ftp-upload', name: 'FTP Transfer', icon: 'fa-server', color: 'from-indigo-500 to-violet-500', category: 'integration', description: 'Transfer via FTP' },
-            { id: 'fedram-sync', name: 'FedRAMP Sync', icon: 'fa-sync', color: 'from-blue-600 to-indigo-600', category: 'integration', description: 'Sync with FedRAMP system' },
+            { id: 'fedram-sync', name: 'FedRAMP Sync', icon: 'fa-sync', color: 'from-[#1e56b0] to-indigo-600', category: 'integration', description: 'Sync with FedRAMP system' },
 
             // Completion & Reporting
             { id: 'generate-report', name: 'Generate Report', icon: 'fa-file-pdf', color: 'from-red-400 to-pink-500', category: 'completion', description: 'Create PDF report' },

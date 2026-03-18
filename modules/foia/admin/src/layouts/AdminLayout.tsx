@@ -93,7 +93,7 @@ export default function AdminLayout() {
             'flex items-center gap-3 px-3 py-2 rounded-lg transition-colors mb-1',
             level > 0 && 'ml-6 text-sm',
             isActive
-              ? 'bg-blue-100 text-blue-700 font-semibold'
+              ? 'bg-navy-800 text-white font-semibold'
               : 'text-gray-700 hover:bg-gray-100',
             isSidebarCollapsed && level === 0 && 'justify-center'
           )}
@@ -130,7 +130,7 @@ export default function AdminLayout() {
       {/* Top Header */}
       <header className="bg-white border-b border-gray-200 px-6 py-3 flex items-center justify-between z-30">
         <div className="flex items-center gap-4">
-          <h1 className="text-xl font-bold text-blue-600">Govli AI</h1>
+          <h1 className="text-xl font-bold text-[#1e56b0]">Govli AI</h1>
           <span className="text-sm text-gray-600">FOIA Admin Portal</span>
         </div>
         <div className="flex items-center gap-4">
@@ -138,7 +138,7 @@ export default function AdminLayout() {
             variant="ghost"
             size="sm"
             onClick={toggleCopilot}
-            className={clsx(isCopilotOpen && 'bg-blue-100 text-blue-700')}
+            className={clsx(isCopilotOpen && 'bg-navy-800 text-white')}
             aria-label="Toggle AI Copilot"
           >
             🤖 AI Copilot
@@ -157,7 +157,7 @@ export default function AdminLayout() {
             ⚙️
           </button>
           <div className="flex items-center gap-2 pl-4 border-l border-gray-200">
-            <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-semibold">
+            <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-[#4c3bcf] rounded-full flex items-center justify-center text-white font-semibold">
               A
             </div>
             <div className="hidden md:block">
@@ -217,15 +217,15 @@ export default function AdminLayout() {
           <span>v1.0.0</span>
         </div>
         <div className="flex items-center gap-4">
-          <a href="#" className="hover:text-blue-600 transition-colors">
+          <a href="#" className="hover:text-[#1e56b0] transition-colors">
             Support
           </a>
           <span>•</span>
-          <a href="#" className="hover:text-blue-600 transition-colors">
+          <a href="#" className="hover:text-[#1e56b0] transition-colors">
             Documentation
           </a>
           <span>•</span>
-          <a href="#" className="hover:text-blue-600 transition-colors">
+          <a href="#" className="hover:text-[#1e56b0] transition-colors">
             Privacy
           </a>
         </div>

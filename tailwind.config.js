@@ -6,11 +6,22 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'ocean-dark': '#0A1628',
-        'ocean-blue': '#0F172A',
-        'ocean-light': '#1E293B',
-        'cyan-bright': '#06B6D4',
-        'blue-bright': '#3B82F6',
+        navy: {
+          900: '#0a1628',
+          800: '#0f2044',
+          700: '#162a56',
+          600: '#1a3266',
+        },
+        brand: {
+          blue: '#1e56b0',
+          purple: '#4c3bcf',
+        },
+        // Legacy aliases for backwards compatibility
+        'ocean-dark': '#0a1628',
+        'ocean-blue': '#0f2044',
+        'ocean-light': '#162a56',
+        'cyan-bright': '#1e56b0',
+        'blue-bright': '#1e56b0',
       },
     },
   },

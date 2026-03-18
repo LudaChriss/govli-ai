@@ -94,7 +94,7 @@ export default function RequestListPage() {
         cell: (info) => (
           <button
             onClick={() => navigate(`/requests/${info.getValue()}`)}
-            className="text-blue-600 hover:text-blue-800 font-semibold"
+            className="text-[#1e56b0] hover:text-blue-800 font-semibold"
           >
             {info.getValue()}
           </button>

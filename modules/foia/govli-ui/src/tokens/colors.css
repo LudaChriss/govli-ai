@@ -5,18 +5,30 @@
  */
 
 :root {
-  /* Primary Brand Colors - Govli Default */
-  --color-navy: #1e3a5f;
-  --color-navy-light: #2d5080;
-  --color-navy-dark: #0f1d30;
+  /* Primary Brand Colors - Navy Blue Theme */
+  --color-navy: #1e56b0;
+  --color-navy-light: #2e6fd4;
+  --color-navy-dark: #0a1628;
 
-  --color-teal: #00a9a5;
-  --color-teal-light: #00c9c4;
-  --color-teal-dark: #008985;
+  --color-teal: #1e56b0;
+  --color-teal-light: #2e6fd4;
+  --color-teal-dark: #0f2044;
 
-  --color-gold: #f6be00;
-  --color-gold-light: #ffd633;
-  --color-gold-dark: #d4a000;
+  --color-gold: #1e56b0;
+  --color-gold-light: #2e6fd4;
+  --color-gold-dark: #162a56;
+
+  /* Background Colors */
+  --bg-primary: #0a1628;
+  --bg-secondary: #0f2044;
+  --bg-tertiary: #162a56;
+  --bg-glass: rgba(255, 255, 255, 0.06);
+
+  /* Accent Colors */
+  --accent-blue: #1e56b0;
+  --accent-blue-light: #2e6fd4;
+  --accent-purple: #4c3bcf;
+  --accent-gradient: linear-gradient(135deg, #1e56b0, #4c3bcf);
 
   /* Semantic Colors */
   --color-success: #10b981;
@@ -51,21 +63,21 @@
   --color-gray-900: #111827;
 
   /* Functional Colors */
-  --color-background: var(--color-white);
-  --color-background-secondary: var(--color-gray-50);
-  --color-background-tertiary: var(--color-gray-100);
+  --color-background: var(--bg-primary);
+  --color-background-secondary: var(--bg-secondary);
+  --color-background-tertiary: var(--bg-tertiary);
 
-  --color-text-primary: var(--color-gray-900);
-  --color-text-secondary: var(--color-gray-600);
-  --color-text-muted: var(--color-gray-400);
+  --color-text-primary: #ffffff;
+  --color-text-secondary: rgba(255, 255, 255, 0.65);
+  --color-text-muted: rgba(255, 255, 255, 0.35);
   --color-text-inverse: var(--color-white);
 
-  --color-border: var(--color-gray-200);
-  --color-border-strong: var(--color-gray-300);
-  --color-border-subtle: var(--color-gray-100);
+  --color-border: rgba(255, 255, 255, 0.10);
+  --color-border-strong: rgba(255, 255, 255, 0.20);
+  --color-border-subtle: rgba(255, 255, 255, 0.05);
 
-  --color-focus: var(--color-teal);
-  --color-focus-ring: rgba(0, 169, 165, 0.3);
+  --color-focus: var(--accent-blue);
+  --color-focus-ring: rgba(30, 86, 176, 0.3);
 
   /* Interactive States */
   --color-hover-overlay: rgba(0, 0, 0, 0.05);
@@ -74,20 +86,20 @@
   --color-disabled-text: var(--color-gray-400);
 }
 
-/* Dark Mode Support */
+/* Dark Mode Support - Navy Blue Theme is default dark */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --color-background: var(--color-gray-900);
-    --color-background-secondary: var(--color-gray-800);
-    --color-background-tertiary: var(--color-gray-700);
+    --color-background: var(--bg-primary);
+    --color-background-secondary: var(--bg-secondary);
+    --color-background-tertiary: var(--bg-tertiary);
 
-    --color-text-primary: var(--color-gray-50);
-    --color-text-secondary: var(--color-gray-300);
-    --color-text-muted: var(--color-gray-500);
+    --color-text-primary: #ffffff;
+    --color-text-secondary: rgba(255, 255, 255, 0.65);
+    --color-text-muted: rgba(255, 255, 255, 0.35);
 
-    --color-border: var(--color-gray-700);
-    --color-border-strong: var(--color-gray-600);
-    --color-border-subtle: var(--color-gray-800);
+    --color-border: rgba(255, 255, 255, 0.10);
+    --color-border-strong: rgba(255, 255, 255, 0.20);
+    --color-border-subtle: rgba(255, 255, 255, 0.05);
 
     --color-hover-overlay: rgba(255, 255, 255, 0.1);
     --color-active-overlay: rgba(255, 255, 255, 0.15);

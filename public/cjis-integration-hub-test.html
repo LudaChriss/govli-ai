@@ -21,7 +21,7 @@
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
     <style>
         :root {
-            --primary-blue: #1e40af;
+            --primary-blue: #1e56b0;
             --secondary-blue: #3b82f6;
             --accent-purple: #8b5cf6;
             --success-green: #10b981;
@@ -35,7 +35,7 @@
         }
         
         .sidebar {
-            background: linear-gradient(180deg, #1e40af 0%, #3730a3 100%);
+            background: linear-gradient(180deg, #1e56b0 0%, #3730a3 100%);
             box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
             border-right: 1px solid rgba(59, 130, 246, 0.3);
         }
@@ -204,7 +204,7 @@
         }
 
         .scrollbar-thin::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #3b82f6, #1e40af);
+            background: linear-gradient(180deg, #3b82f6, #1e56b0);
             border-radius: 10px;
         }
 
@@ -262,7 +262,7 @@
 
         /* Regulation Assistant Styles - Added 2025-10-07 */
         .regulation-chat-bubble-user {
-            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+            background: linear-gradient(135deg, #3b82f6 0%, #1e56b0 100%);
             border-radius: 18px 18px 4px 18px;
             box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
         }
@@ -353,7 +353,7 @@
 
         .regulation-link-button {
             display: inline-block;
-            background: linear-gradient(135deg, #3b82f6, #1e40af);
+            background: linear-gradient(135deg, #3b82f6, #1e56b0);
             color: white;
             padding: 6px 12px;
             border-radius: 8px;
@@ -1355,7 +1355,7 @@
                     <div class="glass rounded-xl p-6 mb-6">
                         <div class="flex items-center justify-between mb-4">
                             <div class="flex items-center">
-                                <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mr-3">
+                                <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-[#4c3bcf] rounded-full flex items-center justify-center mr-3">
                                     <i class="fas fa-brain text-white"></i>
                                 </div>
                                 <div>
@@ -1411,7 +1411,7 @@
                             <div class="flex space-x-2">
                                 <input type="text" id="adminUserInput" placeholder="Enter command, automation script, or natural language query..."
                                        class="flex-1 bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                <button onclick="sendAdvancedAdminMessage()" class="bg-gradient-to-r from-blue-600 to-purple-600 px-4 py-2 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all">
+                                <button onclick="sendAdvancedAdminMessage()" class="bg-gradient-to-r from-[#1e56b0] to-[#4c3bcf] px-4 py-2 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all">
                                     <i class="fas fa-paper-plane text-white"></i>
                                 </button>
                             </div>
@@ -1491,7 +1491,7 @@
 
                         <!-- Action Buttons -->
                         <div class="flex flex-wrap gap-3 mb-6">
-                            <button onclick="showBatchUpload()" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg font-semibold hover:shadow-lg transition-all" aria-label="Upload multiple documents for batch processing">
+                            <button onclick="showBatchUpload()" class="bg-gradient-to-r from-[#1e56b0] to-[#4c3bcf] text-white px-4 py-2 rounded-lg font-semibold hover:shadow-lg transition-all" aria-label="Upload multiple documents for batch processing">
                                 <i class="fas fa-upload mr-2"></i>Batch Upload
                             </button>
                             <button onclick="exportDocProcessingReport()" class="bg-white/10 border border-white/20 text-white px-4 py-2 rounded-lg font-semibold hover:bg-white/20 transition-all" aria-label="Export processing report">
@@ -1560,7 +1560,7 @@
                 <!-- Citizen Portal Tab -->
                 <div id="citizen-content" class="tab-content" style="display: none;">
                     <!-- Welcome Banner -->
-                    <div class="glass rounded-xl p-6 mb-6 bg-gradient-to-r from-blue-600/20 to-purple-600/20">
+                    <div class="glass rounded-xl p-6 mb-6 bg-gradient-to-r from-[#1e56b0]/20 to-[#4c3bcf]/20">
                         <div class="flex items-center justify-between">
                             <div>
                                 <h2 class="text-2xl font-bold text-white mb-2">Welcome to City Services Portal</h2>
@@ -1739,7 +1739,7 @@
                         <div class="flex items-center gap-3">
                             <h2 class="text-2xl font-bold text-white">Workflows</h2>
                             <div class="glass rounded-lg p-1 flex gap-1">
-                                <button id="simpleWorkflowBtn" onclick="switchWorkflowMode('simple')" class="px-4 py-2 rounded-lg text-sm font-medium transition-all bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+                                <button id="simpleWorkflowBtn" onclick="switchWorkflowMode('simple')" class="px-4 py-2 rounded-lg text-sm font-medium transition-all bg-gradient-to-r from-blue-500 to-[#4c3bcf] text-white">
                                     <i class="fas fa-magic mr-2"></i>Simple Mode
                                 </button>
                                 <button id="advancedWorkflowBtn" onclick="switchWorkflowMode('advanced')" class="px-4 py-2 rounded-lg text-sm font-medium transition-all text-white/70 hover:text-white">
@@ -1790,7 +1790,7 @@
                                     </div>
                                     <button
                                         id="generateBtn"
-                                        class="bg-gradient-to-r from-blue-500 to-purple-600 px-6 py-2 rounded-lg hover:shadow-lg transition-all font-medium"
+                                        class="bg-gradient-to-r from-blue-500 to-[#4c3bcf] px-6 py-2 rounded-lg hover:shadow-lg transition-all font-medium"
                                         aria-label="Generate workflow with AI">
                                         <i class="fas fa-magic mr-2"></i>Generate Workflow
                                     </button>
@@ -2152,7 +2152,7 @@
                             <button onclick="generateSecurityReport()" class="bg-gradient-to-r from-blue-500 to-blue-600 px-4 py-2 rounded-lg hover:shadow-lg transition-all text-white">
                                 <i class="fas fa-file-alt mr-2"></i>Generate Report
                             </button>
-                            <button onclick="openDiagnostics()" class="bg-gradient-to-r from-purple-500 to-purple-600 px-4 py-2 rounded-lg hover:shadow-lg transition-all text-white">
+                            <button onclick="openDiagnostics()" class="bg-gradient-to-r from-purple-500 to-[#4c3bcf] px-4 py-2 rounded-lg hover:shadow-lg transition-all text-white">
                                 <i class="fas fa-stethoscope mr-2"></i>Diagnostics
                             </button>
                             <button onclick="openCJISConfig()" class="bg-gradient-to-r from-green-500 to-green-600 px-4 py-2 rounded-lg hover:shadow-lg transition-all text-white">
@@ -3081,7 +3081,7 @@
                                         <span class="text-white/50 text-xs ml-1">vs last week</span>
                                     </div>
                                 </div>
-                                <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                                <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-[#4c3bcf] rounded-lg flex items-center justify-center">
                                     <i class="fas fa-project-diagram text-white"></i>
                                 </div>
                             </div>
@@ -3301,12 +3301,12 @@
 
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center space-x-3">
-                                        <div class="w-4 h-4 bg-gradient-to-r from-purple-500 to-purple-600 rounded"></div>
+                                        <div class="w-4 h-4 bg-gradient-to-r from-purple-500 to-[#4c3bcf] rounded"></div>
                                         <span class="text-white/80">Grant Management</span>
                                     </div>
                                     <div class="flex items-center space-x-2">
                                         <div class="w-24 bg-white/10 rounded-full h-2">
-                                            <div class="bg-gradient-to-r from-purple-500 to-purple-600 h-2 rounded-full" style="width: 72%"></div>
+                                            <div class="bg-gradient-to-r from-purple-500 to-[#4c3bcf] h-2 rounded-full" style="width: 72%"></div>
                                         </div>
                                         <span class="text-white text-sm w-10">72%</span>
                                     </div>
@@ -4911,7 +4911,7 @@
                             <div class="relative mb-3">
                                 <input type="text" id="apiSearch" placeholder="Try: 'Find me all DMV databases with vehicle registration data' or 'Show APIs for tax assessment'"
                                        class="w-full px-6 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                <button onclick="searchAPIs()" class="absolute right-3 top-1/2 -translate-y-1/2 px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg text-white font-medium hover:shadow-lg transition-all">
+                                <button onclick="searchAPIs()" class="absolute right-3 top-1/2 -translate-y-1/2 px-6 py-2 bg-gradient-to-r from-[#1e56b0] to-[#4c3bcf] rounded-lg text-white font-medium hover:shadow-lg transition-all">
                                     <i class="fas fa-magic mr-2"></i>AI Search
                                 </button>
                             </div>
@@ -5158,7 +5158,7 @@
                         </div>
                         <div id="modalContent" class="space-y-6"></div>
                         <div class="flex gap-3 mt-6">
-                            <button onclick="retryError()" class="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg text-white font-medium hover:shadow-lg transition-all">
+                            <button onclick="retryError()" class="px-6 py-3 bg-gradient-to-r from-[#1e56b0] to-[#4c3bcf] rounded-lg text-white font-medium hover:shadow-lg transition-all">
                                 <i class="fas fa-redo mr-2"></i>Retry Request
                             </button>
                             <button onclick="escalateError()" class="px-6 py-3 bg-yellow-600 hover:bg-yellow-700 rounded-lg text-white font-medium transition-all">
@@ -5571,7 +5571,7 @@
                                         <option>State DMV</option>
                                         <option>IRS e-Services</option>
                                     </select>
-                                    <button class="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg text-white font-medium hover:shadow-lg transition">
+                                    <button class="px-6 py-3 bg-gradient-to-r from-blue-500 to-[#4c3bcf] rounded-lg text-white font-medium hover:shadow-lg transition">
                                         <i class="fas fa-plus mr-2"></i>Begin Setup
                                     </button>
                                 </div>
@@ -5803,7 +5803,7 @@
                                         <option>Last 30 Days</option>
                                         <option>Last 90 Days</option>
                                     </select>
-                                    <button class="px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg text-white font-medium hover:shadow-lg transition">
+                                    <button class="px-6 py-2 bg-gradient-to-r from-blue-500 to-[#4c3bcf] rounded-lg text-white font-medium hover:shadow-lg transition">
                                         <i class="fas fa-download mr-2"></i>Export
                                     </button>
                                 </div>
@@ -6033,7 +6033,7 @@
                         <div class="glass rounded-xl p-6 mb-4 flex-shrink-0">
                             <div class="flex items-center justify-between mb-4">
                                 <div class="flex items-center space-x-4">
-                                    <div class="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
+                                    <div class="w-12 h-12 bg-gradient-to-r from-[#1e56b0] to-[#4c3bcf] rounded-xl flex items-center justify-center">
                                         <i class="fas fa-network-wired text-white text-xl"></i>
                                     </div>
                                     <div>
@@ -6054,7 +6054,7 @@
                                         <i class="fas fa-brain text-purple-400 text-xs"></i>
                                         <span class="text-purple-300 text-xs font-semibold">AI Active</span>
                                     </div>
-                                    <button onclick="showNewContactModal()" class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-5 py-2.5 rounded-lg transition-all duration-200 flex items-center space-x-2 shadow-lg">
+                                    <button onclick="showNewContactModal()" class="bg-gradient-to-r from-[#1e56b0] to-[#4c3bcf] hover:from-blue-700 hover:to-purple-700 text-white px-5 py-2.5 rounded-lg transition-all duration-200 flex items-center space-x-2 shadow-lg">
                                         <i class="fas fa-plus text-sm"></i>
                                         <span class="font-medium">Add Contact</span>
                                     </button>
@@ -6250,7 +6250,7 @@
                                         <i class="fas fa-camera"></i>
                                         <span>Scan Business Card</span>
                                     </button>
-                                    <button onclick="openContactImport('upload')" class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-3 rounded-lg font-medium transition-all shadow-lg flex items-center justify-center gap-2">
+                                    <button onclick="openContactImport('upload')" class="bg-gradient-to-r from-[#1e56b0] to-[#4c3bcf] hover:from-blue-700 hover:to-purple-700 text-white px-4 py-3 rounded-lg font-medium transition-all shadow-lg flex items-center justify-center gap-2">
                                         <i class="fas fa-cloud-upload-alt"></i>
                                         <span>Upload Documents</span>
                                     </button>
@@ -6428,7 +6428,7 @@
                             <span class="text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded-full">PNG</span>
                             <span class="text-xs bg-yellow-500/20 text-yellow-300 px-2 py-1 rounded-full">TIFF</span>
                         </div>
-                        <button type="button" onclick="document.getElementById('docProcessingFileInput').click()" class="bg-gradient-to-r from-blue-500 to-purple-600 px-4 py-2 rounded-lg text-white text-sm hover:shadow-lg transition-all" aria-label="Upload document">
+                        <button type="button" onclick="document.getElementById('docProcessingFileInput').click()" class="bg-gradient-to-r from-blue-500 to-[#4c3bcf] px-4 py-2 rounded-lg text-white text-sm hover:shadow-lg transition-all" aria-label="Upload document">
                             <i class="fas fa-cloud-upload-alt mr-2" aria-hidden="true"></i>Choose File
                         </button>
                         <input type="file" id="docProcessingFileInput" class="hidden" accept=".pdf,.jpg,.jpeg,.png,.tiff" aria-label="Select documents to upload">
@@ -6455,7 +6455,7 @@
                             </div>
                         </div>
                         <div class="w-full bg-white/10 rounded-full h-2 overflow-hidden">
-                            <div id="docProcessingProgressBar" class="bg-gradient-to-r from-blue-500 to-purple-600 h-full transition-all duration-500" style="width: 0%"></div>
+                            <div id="docProcessingProgressBar" class="bg-gradient-to-r from-blue-500 to-[#4c3bcf] h-full transition-all duration-500" style="width: 0%"></div>
                         </div>
                     </div>
 
@@ -6481,7 +6481,7 @@
                                 <i class="fas fa-list-check text-blue-400"></i>
                                 <span class="text-sm font-bold text-white">Extracted <span id="docProcessingFieldCount">0</span> Fields</span>
                             </div>
-                            <button type="button" onclick="autoFillFromDocument()" class="text-sm bg-gradient-to-r from-blue-500 to-purple-600 px-4 py-2 rounded-lg text-white hover:shadow-lg transition-all" aria-label="Auto-fill form with extracted data">
+                            <button type="button" onclick="autoFillFromDocument()" class="text-sm bg-gradient-to-r from-blue-500 to-[#4c3bcf] px-4 py-2 rounded-lg text-white hover:shadow-lg transition-all" aria-label="Auto-fill form with extracted data">
                                 <i class="fas fa-bolt mr-1" aria-hidden="true"></i>Auto-fill Form
                             </button>
                         </div>
@@ -7206,7 +7206,7 @@
             
             stepDiv.innerHTML = `
                 <div class="flex items-start space-x-3">
-                    <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
+                    <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-[#4c3bcf] rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
                         ${workflowStepCount}
                     </div>
                     <div class="flex-1 space-y-3">
@@ -7637,7 +7637,7 @@
                 return `
                     <div class="flex items-center ${index < steps.length - 1 ? 'mb-4' : ''}">
                         <div class="flex items-center space-x-3">
-                            <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-sm font-bold">
+                            <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-[#4c3bcf] rounded-full flex items-center justify-center text-white text-sm font-bold">
                                 ${index + 1}
                             </div>
                             <div class="flex items-center space-x-2">
@@ -9860,7 +9860,7 @@
                                 </select>
                             </div>
 
-                            <button onclick="analyzePolicyQuery()" class="w-full px-6 py-3 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold hover:shadow-lg hover:shadow-blue-500/50 transition-all">
+                            <button onclick="analyzePolicyQuery()" class="w-full px-6 py-3 rounded-lg bg-gradient-to-r from-[#1e56b0] to-[#4c3bcf] text-white font-bold hover:shadow-lg hover:shadow-blue-500/50 transition-all">
                                 <i class="fas fa-search-plus mr-2"></i>Analyze Policy
                             </button>
                         </div>
@@ -11394,7 +11394,7 @@
                             ${grant.eligibility}
                         </div>
                         <div class="space-x-2">
-                            <button onclick="viewGrantDetails('${grant.title}')" class="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg text-white text-sm hover:from-blue-600 hover:to-purple-700 transition-all">
+                            <button onclick="viewGrantDetails('${grant.title}')" class="px-4 py-2 bg-gradient-to-r from-blue-500 to-[#4c3bcf] rounded-lg text-white text-sm hover:from-[#1e56b0] hover:to-purple-700 transition-all">
                                 View Details
                             </button>
                             <button onclick="addToWorkflow('${grant.title}')" class="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg text-white text-sm hover:from-purple-600 hover:to-pink-700 transition-all">
@@ -11592,7 +11592,7 @@
                             <span class="text-xs text-white/80">${grant.progress}%</span>
                         </div>
                         <div class="w-full bg-white/10 rounded-full h-2">
-                            <div class="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-500" style="width: ${grant.progress}%"></div>
+                            <div class="bg-gradient-to-r from-blue-500 to-[#4c3bcf] h-2 rounded-full transition-all duration-500" style="width: ${grant.progress}%"></div>
                         </div>
                     </div>
                 </div>
@@ -11734,7 +11734,7 @@
 
                 return `
                     <div class="flex items-center space-x-3 p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-200">
-                        <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-[#4c3bcf] rounded-lg flex items-center justify-center flex-shrink-0">
                             <i class="fas ${icons[activity.type]} text-white text-sm"></i>
                         </div>
                         <div class="flex-1 min-w-0">
@@ -12316,7 +12316,7 @@
             { id: 'duplicate-check', name: 'Duplicate Detection', icon: 'fa-copy', color: 'from-teal-500 to-green-500', category: 'validation', description: 'Check for duplicates' },
             { id: 'background-check', name: 'Background Verification', icon: 'fa-user-shield', color: 'from-emerald-500 to-teal-600', category: 'validation', description: 'FBI/CJIS background check' },
             { id: 'auto-route', name: 'Auto-Route', icon: 'fa-route', color: 'from-purple-400 to-purple-500', category: 'routing', description: 'Automatically route by rules' },
-            { id: 'assignment', name: 'Task Assignment', icon: 'fa-user-tag', color: 'from-purple-500 to-purple-600', category: 'routing', description: 'Assign to user or team' },
+            { id: 'assignment', name: 'Task Assignment', icon: 'fa-user-tag', color: 'from-purple-500 to-[#4c3bcf]', category: 'routing', description: 'Assign to user or team' },
             { id: 'load-balance', name: 'Load Balancing', icon: 'fa-balance-scale', color: 'from-violet-500 to-purple-500', category: 'routing', description: 'Distribute workload evenly' },
             { id: 'single-approval', name: 'Single Approval', icon: 'fa-user-check', color: 'from-pink-400 to-rose-500', category: 'approval', description: 'One person approval' },
             { id: 'multi-approval', name: 'Multi-Level Approval', icon: 'fa-users-cog', color: 'from-pink-500 to-pink-600', category: 'approval', description: 'Sequential approvals' },
@@ -12341,7 +12341,7 @@
             { id: 'api-call', name: 'API Request', icon: 'fa-exchange-alt', color: 'from-violet-400 to-purple-500', category: 'integration', description: 'Call external API' },
             { id: 'webhook', name: 'Webhook Trigger', icon: 'fa-link', color: 'from-purple-500 to-fuchsia-500', category: 'integration', description: 'Trigger webhook event' },
             { id: 'ftp-upload', name: 'FTP Transfer', icon: 'fa-server', color: 'from-indigo-500 to-violet-500', category: 'integration', description: 'Transfer via FTP' },
-            { id: 'fedram-sync', name: 'FedRAMP Sync', icon: 'fa-sync', color: 'from-blue-600 to-indigo-600', category: 'integration', description: 'Sync with FedRAMP system' },
+            { id: 'fedram-sync', name: 'FedRAMP Sync', icon: 'fa-sync', color: 'from-[#1e56b0] to-indigo-600', category: 'integration', description: 'Sync with FedRAMP system' },
             { id: 'generate-report', name: 'Generate Report', icon: 'fa-file-pdf', color: 'from-red-400 to-pink-500', category: 'completion', description: 'Create PDF report' },
             { id: 'audit-log', name: 'Audit Trail', icon: 'fa-history', color: 'from-slate-500 to-gray-600', category: 'completion', description: 'Log audit trail' },
             { id: 'completion', name: 'Mark Complete', icon: 'fa-flag-checkered', color: 'from-green-500 to-emerald-600', category: 'completion', description: 'Workflow completion' },
@@ -13034,7 +13034,7 @@
                             <button id="shareAuditBtn" class="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg font-medium hover:shadow-lg transition-all">
                                 <i class="fas fa-share-alt mr-2"></i>Share
                             </button>
-                            <button id="createBlockBtn" class="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-medium hover:shadow-lg transition-all neon-blue">
+                            <button id="createBlockBtn" class="px-4 py-2 bg-gradient-to-r from-blue-500 to-[#4c3bcf] rounded-lg font-medium hover:shadow-lg transition-all neon-blue">
                                 <i class="fas fa-plus mr-2"></i>Create Block
                             </button>
                         </div>
@@ -13982,14 +13982,14 @@
             if (mode === 'simple') {
                 simpleMode.style.display = 'block';
                 advancedMode.style.display = 'none';
-                simpleBtn.className = 'px-4 py-2 rounded-lg text-sm font-medium transition-all bg-gradient-to-r from-blue-500 to-purple-600 text-white';
+                simpleBtn.className = 'px-4 py-2 rounded-lg text-sm font-medium transition-all bg-gradient-to-r from-blue-500 to-[#4c3bcf] text-white';
                 advancedBtn.className = 'px-4 py-2 rounded-lg text-sm font-medium transition-all text-white/70 hover:text-white';
                 description.textContent = 'Use AI to describe your workflow';
             } else {
                 simpleMode.style.display = 'none';
                 advancedMode.style.display = 'block';
                 simpleBtn.className = 'px-4 py-2 rounded-lg text-sm font-medium transition-all text-white/70 hover:text-white';
-                advancedBtn.className = 'px-4 py-2 rounded-lg text-sm font-medium transition-all bg-gradient-to-r from-blue-500 to-purple-600 text-white';
+                advancedBtn.className = 'px-4 py-2 rounded-lg text-sm font-medium transition-all bg-gradient-to-r from-blue-500 to-[#4c3bcf] text-white';
                 description.textContent = 'Drag and drop to build complex workflows';
 
                 // Initialize advanced canvas on first load
@@ -15102,7 +15102,7 @@
         function renderAPIResults(apis) {
             const container = document.getElementById('apiResults');
             if (!container) return;
-            container.innerHTML = apis.map(api => `<div class="glass rounded-xl p-6 hover:scale-105 transition-all cursor-pointer"><div class="flex items-start justify-between mb-3"><div><h4 class="font-bold text-white mb-1">${api.name}</h4><p class="text-xs text-white/60">${api.category}</p></div><div class="w-2 h-2 bg-${api.status === 'healthy' ? 'green' : 'yellow'}-400 rounded-full animate-pulse"></div></div><p class="text-sm text-white/70 mb-3">${api.description}</p><div class="mb-3"><div class="flex justify-between text-xs mb-1"><span class="text-white/60">Compatibility</span><span class="text-white font-medium">${api.compatibility}%</span></div><div class="compatibility-score relative overflow-hidden"><div class="absolute inset-0 bg-gradient-to-r from-red-500 via-yellow-500 to-green-500"></div><div class="absolute inset-0 bg-black/50" style="width: ${100 - api.compatibility}%; margin-left: ${api.compatibility}%"></div></div></div><div class="grid grid-cols-2 gap-2 text-xs mb-3"><div><span class="text-white/50">Auth:</span> <span class="text-white">${api.auth}</span></div><div><span class="text-white/50">Uptime:</span> <span class="text-green-400">${api.uptime}%</span></div></div><div class="flex gap-1 mb-3 flex-wrap">${api.compliance.map(badge => `<span class="text-xs px-2 py-1 bg-green-500/20 text-green-400 rounded-full border border-green-500/30">${badge}</span>`).join('')}</div><div class="flex items-center justify-between"><span class="text-sm text-yellow-400 font-medium">${api.cost}</span><button onclick="connectAPI('${api.id}')" class="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg text-white text-sm font-medium hover:shadow-lg transition-all">Connect</button></div></div>`).join('');
+            container.innerHTML = apis.map(api => `<div class="glass rounded-xl p-6 hover:scale-105 transition-all cursor-pointer"><div class="flex items-start justify-between mb-3"><div><h4 class="font-bold text-white mb-1">${api.name}</h4><p class="text-xs text-white/60">${api.category}</p></div><div class="w-2 h-2 bg-${api.status === 'healthy' ? 'green' : 'yellow'}-400 rounded-full animate-pulse"></div></div><p class="text-sm text-white/70 mb-3">${api.description}</p><div class="mb-3"><div class="flex justify-between text-xs mb-1"><span class="text-white/60">Compatibility</span><span class="text-white font-medium">${api.compatibility}%</span></div><div class="compatibility-score relative overflow-hidden"><div class="absolute inset-0 bg-gradient-to-r from-red-500 via-yellow-500 to-green-500"></div><div class="absolute inset-0 bg-black/50" style="width: ${100 - api.compatibility}%; margin-left: ${api.compatibility}%"></div></div></div><div class="grid grid-cols-2 gap-2 text-xs mb-3"><div><span class="text-white/50">Auth:</span> <span class="text-white">${api.auth}</span></div><div><span class="text-white/50">Uptime:</span> <span class="text-green-400">${api.uptime}%</span></div></div><div class="flex gap-1 mb-3 flex-wrap">${api.compliance.map(badge => `<span class="text-xs px-2 py-1 bg-green-500/20 text-green-400 rounded-full border border-green-500/30">${badge}</span>`).join('')}</div><div class="flex items-center justify-between"><span class="text-sm text-yellow-400 font-medium">${api.cost}</span><button onclick="connectAPI('${api.id}')" class="px-4 py-2 bg-gradient-to-r from-[#1e56b0] to-[#4c3bcf] rounded-lg text-white text-sm font-medium hover:shadow-lg transition-all">Connect</button></div></div>`).join('');
         }
 
         function renderHealthDashboard() {
@@ -15130,7 +15130,7 @@
         function renderConnectorGallery() {
             const container = document.getElementById('connectorGallery');
             if (!container) return;
-            container.innerHTML = MOCK_APIS.map(api => `<div class="glass rounded-xl p-6 hover:scale-105 transition-all cursor-pointer"><div class="flex items-start justify-between mb-3"><div class="flex items-center gap-3"><div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center"><i class="fas fa-plug text-white text-xl"></i></div><div><h4 class="font-bold text-white">${api.name}</h4><p class="text-xs text-white/60">${api.category}</p></div></div></div><p class="text-sm text-white/70 mb-3">${api.description}</p><div class="flex gap-1 mb-3 flex-wrap">${api.compliance.map(badge => `<span class="text-xs px-2 py-1 bg-green-500/20 text-green-400 rounded-full border border-green-500/30">${badge}</span>`).join('')}</div><button onclick="installConnector('${api.id}')" class="w-full py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg text-white text-sm font-medium hover:shadow-lg transition-all"><i class="fas fa-download mr-2"></i>Install Connector</button></div>`).join('');
+            container.innerHTML = MOCK_APIS.map(api => `<div class="glass rounded-xl p-6 hover:scale-105 transition-all cursor-pointer"><div class="flex items-start justify-between mb-3"><div class="flex items-center gap-3"><div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center"><i class="fas fa-plug text-white text-xl"></i></div><div><h4 class="font-bold text-white">${api.name}</h4><p class="text-xs text-white/60">${api.category}</p></div></div></div><p class="text-sm text-white/70 mb-3">${api.description}</p><div class="flex gap-1 mb-3 flex-wrap">${api.compliance.map(badge => `<span class="text-xs px-2 py-1 bg-green-500/20 text-green-400 rounded-full border border-green-500/30">${badge}</span>`).join('')}</div><button onclick="installConnector('${api.id}')" class="w-full py-2 bg-gradient-to-r from-[#1e56b0] to-[#4c3bcf] rounded-lg text-white text-sm font-medium hover:shadow-lg transition-all"><i class="fas fa-download mr-2"></i>Install Connector</button></div>`).join('');
         }
 
         function showErrorDetails(errorId) {

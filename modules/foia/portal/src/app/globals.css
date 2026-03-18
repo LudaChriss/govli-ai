@@ -4,25 +4,46 @@
 
 @layer base {
   :root {
-    --color-navy: #1B3A5C;
-    --color-teal: #0D7C8C;
-    --color-gold: #C8992A;
+    /* Navy Blue Color Palette */
+    --bg-primary: #0a1628;
+    --bg-secondary: #0f2044;
+    --bg-tertiary: #162a56;
+    --bg-glass: rgba(255, 255, 255, 0.06);
+
+    --accent-blue: #1e56b0;
+    --accent-blue-light: #2e6fd4;
+    --accent-purple: #4c3bcf;
+
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.65);
+    --text-muted: rgba(255, 255, 255, 0.35);
+
+    --border-default: rgba(255, 255, 255, 0.10);
+    --border-emphasis: rgba(255, 255, 255, 0.20);
+
+    /* Legacy variables for compatibility */
+    --color-navy: #1e56b0;
+    --color-teal: #1e56b0;
+    --color-gold: #1e56b0;
   }
-  
-  /* Ensure good contrast ratios for WCAG AA */
+
+  /* Navy blue theme with light text */
   body {
-    @apply text-gray-900 bg-white;
+    @apply text-white;
+    background: var(--bg-primary);
   }
   
   /* Focus styles for keyboard navigation */
   *:focus-visible {
-    @apply outline-2 outline-offset-2 outline-brand-teal;
+    @apply outline-2 outline-offset-2;
+    outline-color: var(--accent-blue);
   }
   
   /* Skip to main content link for screen readers */
   .skip-to-main {
     @apply absolute left-0 top-0 -translate-y-full;
-    @apply bg-brand-navy text-white px-4 py-2 z-50;
+    @apply text-white px-4 py-2 z-50;
+    background: var(--accent-blue);
     @apply focus:translate-y-0 focus:outline-none;
   }
 }
@@ -37,32 +58,44 @@
   }
   
   .btn-primary {
-    @apply bg-brand-navy text-white;
-    @apply hover:bg-navy-900;
-    @apply focus:ring-brand-navy;
+    background: linear-gradient(135deg, #1e56b0, #4c3bcf);
+    @apply text-white;
+    @apply hover:opacity-90;
+    @apply focus:ring-2;
+    --tw-ring-color: rgba(30, 86, 176, 0.3);
   }
-  
+
   .btn-secondary {
-    @apply bg-brand-teal text-white;
-    @apply hover:bg-teal-600;
-    @apply focus:ring-brand-teal;
+    @apply text-white;
+    background: var(--accent-blue);
+    @apply hover:opacity-90;
+    @apply focus:ring-2;
+    --tw-ring-color: rgba(30, 86, 176, 0.3);
   }
-  
+
   .btn-outline {
-    @apply border-2 border-brand-navy text-brand-navy;
-    @apply hover:bg-navy-50;
-    @apply focus:ring-brand-navy;
+    @apply border-2 text-white;
+    border-color: var(--accent-blue);
+    @apply hover:bg-opacity-10;
+    background: rgba(30, 86, 176, 0.1);
+    @apply focus:ring-2;
+    --tw-ring-color: rgba(30, 86, 176, 0.3);
   }
   
   /* Form input styles */
   .form-input {
-    @apply w-full px-3 py-2 border border-gray-300 rounded-md;
-    @apply focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent;
-    @apply disabled:bg-gray-100 disabled:cursor-not-allowed;
+    @apply w-full px-3 py-2 rounded-md;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-default);
+    color: var(--text-primary);
+    @apply focus:outline-none focus:ring-2 focus:border-transparent;
+    --tw-ring-color: rgba(30, 86, 176, 0.3);
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
   }
-  
+
   .form-label {
-    @apply block text-sm font-medium text-gray-700 mb-1;
+    @apply block text-sm font-medium mb-1;
+    color: var(--text-secondary);
   }
   
   .form-error {
@@ -75,7 +108,9 @@
   
   /* Card styles */
   .card {
-    @apply bg-white border border-gray-200 rounded-lg shadow-sm;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-default);
+    @apply rounded-lg shadow-sm;
   }
   
   /* Badge styles */

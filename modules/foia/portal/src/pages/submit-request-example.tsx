@@ -179,11 +179,11 @@ export default function SubmitRequestPage() {
         <div className="mt-6 text-center text-sm text-gray-500">
           <p>
             Need help? Check out our{' '}
-            <a href="/faq" className="text-blue-600 hover:underline">
+            <a href="/faq" className="text-[#1e56b0] hover:underline">
               FOIA FAQ
             </a>
             {' '}or{' '}
-            <a href="/contact" className="text-blue-600 hover:underline">
+            <a href="/contact" className="text-[#1e56b0] hover:underline">
               contact us
             </a>
             .
@@ -248,12 +248,12 @@ function TraditionalFormComponent({
                 <h3 className="text-sm font-medium text-blue-800 mb-1">
                   New to FOIA requests?
                 </h3>
-                <p className="text-sm text-blue-700 mb-2">
+                <p className="text-sm text-white mb-2">
                   Try our AI guide! It will help you describe what you're looking for and build a complete request through conversation.
                 </p>
                 <button
                   onClick={onSwitchToChat}
-                  className="text-sm font-medium text-blue-600 hover:text-blue-800 underline"
+                  className="text-sm font-medium text-[#1e56b0] hover:text-blue-800 underline"
                 >
                   Switch to Chat Mode
                 </button>

@@ -20,7 +20,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-blue: #1e40af;
+            --primary-blue: #1e56b0;
             --secondary-blue: #3b82f6;
             --accent-purple: #8b5cf6;
             --success-green: #10b981;
@@ -72,7 +72,7 @@
 
         /* Message Bubbles */
         .message-sent {
-            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+            background: linear-gradient(135deg, #3b82f6 0%, #1e56b0 100%);
             border-radius: 18px 18px 4px 18px;
             box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
         }
@@ -167,7 +167,7 @@
         }
 
         .scrollbar-thin::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #3b82f6, #1e40af);
+            background: linear-gradient(180deg, #3b82f6, #1e56b0);
             border-radius: 10px;
         }
 
@@ -224,7 +224,7 @@
             <header class="glass-dark border-b border-white/10 p-4">
                 <div class="flex items-center justify-between">
                     <div class="flex items-center space-x-4">
-                        <div class="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
+                        <div class="w-12 h-12 bg-gradient-to-r from-[#1e56b0] to-[#4c3bcf] rounded-xl flex items-center justify-center">
                             <i class="fas fa-network-wired text-white text-xl"></i>
                         </div>
                         <div>
@@ -460,7 +460,7 @@
                                         <i class="fas fa-envelope text-white"></i>
                                     </button>
                                     <input type="text" id="messageInput" placeholder="Type a secure message..." class="flex-1 bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-white placeholder-white/50">
-                                    <button onclick="sendMessage()" class="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg text-white font-semibold hover:shadow-lg transition-all">
+                                    <button onclick="sendMessage()" class="px-6 py-2 bg-gradient-to-r from-[#1e56b0] to-[#4c3bcf] rounded-lg text-white font-semibold hover:shadow-lg transition-all">
                                         <i class="fas fa-paper-plane mr-2"></i>Send
                                     </button>
                                 </div>
@@ -729,7 +729,7 @@
                                     Auto-Classification
                                 </h4>
                                 <textarea id="classificationInput" rows="3" placeholder="Type a message to see AI classification in action..." class="w-full bg-white/10 border border-white/20 rounded-lg px-3 py-2 text-white placeholder-white/50 text-sm mb-3"></textarea>
-                                <button onclick="demoClassification()" class="w-full px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg text-white font-semibold hover:shadow-lg transition-all">
+                                <button onclick="demoClassification()" class="w-full px-4 py-2 bg-gradient-to-r from-[#1e56b0] to-[#4c3bcf] rounded-lg text-white font-semibold hover:shadow-lg transition-all">
                                     <i class="fas fa-brain mr-2"></i>Analyze with AI
                                 </button>
                                 <div id="classificationResult" class="mt-3 hidden">
@@ -1270,7 +1270,7 @@
                             ${person.email}
                         </div>
                     </div>
-                    <button onclick="startConversationWith(${person.id})" class="w-full px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg text-white font-semibold hover:shadow-lg transition-all">
+                    <button onclick="startConversationWith(${person.id})" class="w-full px-4 py-2 bg-gradient-to-r from-[#1e56b0] to-[#4c3bcf] rounded-lg text-white font-semibold hover:shadow-lg transition-all">
                         <i class="fas fa-comment mr-2"></i>Message
                     </button>
                 </div>

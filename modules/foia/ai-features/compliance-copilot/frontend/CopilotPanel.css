@@ -10,7 +10,7 @@
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #0F4C81 0%, #00B8D4 100%);
+  background: linear-gradient(135deg, #1e56b0, #4c3bcf);
   border: none;
   color: white;
   cursor: pointer;
@@ -34,14 +34,14 @@
   top: 0;
   width: 320px;
   height: 100vh;
-  background: white;
-  border-left: 1px solid #E0E0E0;
+  background: #0f2044;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
   transform: translateX(100%);
   transition: transform 0.3s ease-in-out;
   z-index: 1001;
-  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.3);
 }
 
 .copilot-panel.open {
@@ -54,7 +54,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 16px;
-  background: linear-gradient(135deg, #0F4C81 0%, #00B8D4 100%);
+  background: linear-gradient(135deg, #1e56b0, #4c3bcf);
   color: white;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
@@ -95,13 +95,13 @@
   flex: 1;
   overflow-y: auto;
   padding: 16px;
-  background: #F5F5F5;
+  background: #0a1628;
 }
 
 .copilot-welcome {
   text-align: center;
   padding: 20px;
-  color: #666;
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .copilot-welcome p {
@@ -137,7 +137,7 @@
 }
 
 .copilot-message-user .copilot-message-content {
-  background: #0F4C81;
+  background: #1e56b0;
   color: white;
   padding: 10px 14px;
   border-radius: 12px 12px 0 12px;
@@ -153,14 +153,14 @@
 }
 
 .copilot-message-assistant .copilot-message-content {
-  background: white;
-  color: #333;
+  background: #162a56;
+  color: #ffffff;
   padding: 10px 14px;
   border-radius: 12px 12px 12px 0;
   max-width: 80%;
   word-wrap: break-word;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  border: 1px solid #E0E0E0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   white-space: pre-wrap;
 }
 
@@ -180,8 +180,8 @@
 }
 
 .copilot-citation {
-  background: white;
-  border: 1px solid #E0E0E0;
+  background: #162a56;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 6px;
   margin-bottom: 4px;
   overflow: hidden;
@@ -189,7 +189,7 @@
 
 .copilot-citation-header {
   width: 100%;
-  background: #F9F9F9;
+  background: #0f2044;
   border: none;
   padding: 8px 12px;
   display: flex;
@@ -198,12 +198,12 @@
   cursor: pointer;
   font-size: 12px;
   font-weight: 600;
-  color: #0F4C81;
+  color: #2e6fd4;
   transition: background 0.2s;
 }
 
 .copilot-citation-header:hover {
-  background: #F0F0F0;
+  background: #162a56;
 }
 
 .copilot-citation-toggle {
@@ -274,7 +274,7 @@
 .copilot-typing-indicator span {
   width: 8px;
   height: 8px;
-  background: #00B8D4;
+  background: #1e56b0;
   border-radius: 50%;
   animation: typing 1.4s infinite ease-in-out;
 }
@@ -327,8 +327,8 @@
 
 .copilot-quick-actions button:hover:not(:disabled) {
   background: #E8F4F8;
-  border-color: #00B8D4;
-  color: #0F4C81;
+  border-color: #1e56b0;
+  color: #1e56b0;
 }
 
 .copilot-quick-actions button:disabled {
@@ -339,8 +339,8 @@
 /* Input area */
 .copilot-input-area {
   padding: 12px;
-  background: white;
-  border-top: 1px solid #E0E0E0;
+  background: #0f2044;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   gap: 8px;
 }
@@ -348,7 +348,9 @@
 .copilot-input {
   flex: 1;
   padding: 10px;
-  border: 1px solid #E0E0E0;
+  background: #0a1628;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   font-size: 13px;
   font-family: inherit;
@@ -358,7 +360,7 @@
 }
 
 .copilot-input:focus {
-  border-color: #00B8D4;
+  border-color: #1e56b0;
 }
 
 .copilot-input::placeholder {
@@ -368,7 +370,7 @@
 
 .copilot-send-btn {
   padding: 10px 16px;
-  background: linear-gradient(135deg, #0F4C81 0%, #00B8D4 100%);
+  background: linear-gradient(135deg, #1e56b0, #4c3bcf);
   color: white;
   border: none;
   border-radius: 8px;

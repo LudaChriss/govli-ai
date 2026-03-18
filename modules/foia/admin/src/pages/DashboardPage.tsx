@@ -198,7 +198,7 @@ export default function DashboardPage() {
             </div>
             <div className="mt-3 w-full bg-gray-200 rounded-full h-3">
               <div
-                className="bg-gradient-to-r from-blue-500 to-purple-600 h-3 rounded-full"
+                className="bg-gradient-to-r from-blue-500 to-[#4c3bcf] h-3 rounded-full"
                 style={{ width: '53.4%' }}
               ></div>
             </div>

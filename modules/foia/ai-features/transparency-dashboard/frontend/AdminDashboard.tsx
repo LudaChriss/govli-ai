@@ -182,7 +182,7 @@ export const AdminDashboard: React.FC<Props> = ({
         </div>
 
         <div className="bg-white rounded-lg shadow p-6 text-center">
-          <div className="text-4xl font-bold text-blue-600 mb-2">
+          <div className="text-4xl font-bold text-[#1e56b0] mb-2">
             {data.own_score.peer_percentile}th
           </div>
           <div className="text-gray-600">Peer Percentile</div>

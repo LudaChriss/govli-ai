@@ -270,7 +270,7 @@ export default function ReadingRoomClient({ initialData }: ReadingRoomClientProp
                     <span className="px-2 py-1 bg-gray-100 rounded text-xs font-medium">
                       {record.department}
                     </span>
-                    <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs font-medium">
+                    <span className="px-2 py-1 bg-navy-800 text-blue-800 rounded text-xs font-medium">
                       {record.record_type}
                     </span>
                   </div>

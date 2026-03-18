@@ -138,7 +138,7 @@ export const ProactiveCandidatesWidget: React.FC<WidgetProps> = ({
     return (
       <div className="bg-white rounded-lg shadow p-6">
         <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-          <FileText className="w-5 h-5 text-blue-600" />
+          <FileText className="w-5 h-5 text-[#1e56b0]" />
           Proactive Disclosure Candidates
         </h3>
         <div className="flex justify-center items-center py-8">
@@ -152,7 +152,7 @@ export const ProactiveCandidatesWidget: React.FC<WidgetProps> = ({
     return (
       <div className="bg-white rounded-lg shadow p-6">
         <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-          <FileText className="w-5 h-5 text-blue-600" />
+          <FileText className="w-5 h-5 text-[#1e56b0]" />
           Proactive Disclosure Candidates
         </h3>
         <div className="flex items-center gap-2 text-red-600 bg-red-50 p-4 rounded">
@@ -167,7 +167,7 @@ export const ProactiveCandidatesWidget: React.FC<WidgetProps> = ({
     return (
       <div className="bg-white rounded-lg shadow p-6">
         <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-          <FileText className="w-5 h-5 text-blue-600" />
+          <FileText className="w-5 h-5 text-[#1e56b0]" />
           Proactive Disclosure Candidates
         </h3>
         <p className="text-gray-500 text-center py-8">
@@ -181,12 +181,12 @@ export const ProactiveCandidatesWidget: React.FC<WidgetProps> = ({
     <div className="bg-white rounded-lg shadow p-6">
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-semibold flex items-center gap-2">
-          <FileText className="w-5 h-5 text-blue-600" />
+          <FileText className="w-5 h-5 text-[#1e56b0]" />
           Proactive Disclosure Candidates
         </h3>
         <a
           href="/admin/proactive-candidates"
-          className="text-sm text-blue-600 hover:text-blue-700"
+          className="text-sm text-[#1e56b0] hover:text-white"
         >
           View All →
         </a>
@@ -253,7 +253,7 @@ export const ProactiveCandidatesWidget: React.FC<WidgetProps> = ({
         <div className="mt-4 text-center">
           <a
             href="/admin/proactive-candidates"
-            className="text-sm text-blue-600 hover:text-blue-700 font-medium"
+            className="text-sm text-[#1e56b0] hover:text-white font-medium"
           >
             View all pending candidates →
           </a>

@@ -116,12 +116,12 @@ export default function FeeEstimateCard({
                 <h3 className="text-sm font-medium text-blue-800 mb-1">
                   You May Qualify for a Fee Waiver
                 </h3>
-                <p className="text-sm text-blue-700 mb-3">
+                <p className="text-sm text-white mb-3">
                   Based on your requester category, you may be eligible for a fee waiver or reduction.
                 </p>
                 <a
                   href={waiverApplicationUrl}
-                  className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800 underline"
+                  className="inline-flex items-center text-sm font-medium text-[#1e56b0] hover:text-blue-800 underline"
                 >
                   Apply for Fee Waiver
                   <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
