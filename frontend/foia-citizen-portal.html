@@ -457,9 +457,12 @@
         </div>
     </div>
 
+    <script src="config.js"></script>
+    <script src="demo-config.js"></script>
+    <script src="demo-data.js"></script>
     <script>
         // VERSION: 2025-12-08-v3
-        const API_BASE_URL = 'http://localhost:3000';
+        const API_BASE_URL = window.API_CONFIG?.BASE_URL || 'http://localhost:3000';
 
         // Store current AI analysis
         let currentAnalysis = null;

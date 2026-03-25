@@ -25,6 +25,7 @@ const DemoData = {
         localStorage.setItem('demo_workflows', JSON.stringify(this.getDefaultWorkflows()));
         localStorage.setItem('demo_inspections', JSON.stringify(this.getDefaultInspections()));
         localStorage.setItem('demo_payments', JSON.stringify(this.getDefaultPayments()));
+        localStorage.setItem('demo_foia_requests', JSON.stringify(this.getDefaultFoiaRequests()));
     },
 
     // Simulate network delay
@@ -447,6 +448,244 @@ const DemoData = {
             success: true,
             payments: payments,
             total: payments.length
+        };
+    },
+
+    // ===== FOIA MODULE =====
+    getDefaultFoiaRequests() {
+        return [
+            {
+                id: 1,
+                trackingNumber: 'FOIA-2025-001',
+                requesterName: 'Sarah Johnson',
+                requesterEmail: 'sarah.j@example.com',
+                requesterPhone: '(555) 123-4567',
+                requesterOrganization: 'City News Network',
+                requesterType: 'media',
+                requestType: 'specific_records',
+                subject: 'Police Department Budget Records',
+                description: 'Requesting all budget documents and expenditure reports for the Police Department for fiscal year 2024.',
+                dateRangeStart: '2024-01-01',
+                dateRangeEnd: '2024-12-31',
+                status: 'processing',
+                priority: 'normal',
+                dateSubmitted: '2025-01-10',
+                dateDue: '2025-02-09',
+                assignedTo: 'Records Department',
+                isAnonymous: false
+            },
+            {
+                id: 2,
+                trackingNumber: 'FOIA-2025-002',
+                requesterName: 'Michael Chen',
+                requesterEmail: 'm.chen@lawfirm.com',
+                requesterPhone: '(555) 234-5678',
+                requesterOrganization: 'Chen & Associates',
+                requesterType: 'legal',
+                requestType: 'case_files',
+                subject: 'Traffic Violation Case Files',
+                description: 'Requesting case files related to traffic violations on Highway 101 between March-June 2024.',
+                dateRangeStart: '2024-03-01',
+                dateRangeEnd: '2024-06-30',
+                status: 'records_gathering',
+                priority: 'high',
+                dateSubmitted: '2025-01-15',
+                dateDue: '2025-02-14',
+                assignedTo: 'Legal Department',
+                isAnonymous: false
+            },
+            {
+                id: 3,
+                trackingNumber: 'FOIA-2025-003',
+                requesterName: 'Jane Smith',
+                requesterEmail: 'jane.smith@email.com',
+                requesterPhone: '(555) 345-6789',
+                requesterOrganization: null,
+                requesterType: 'citizen',
+                requestType: 'communications',
+                subject: 'City Council Meeting Minutes',
+                description: 'Requesting all meeting minutes and email communications regarding the Downtown Redevelopment Project.',
+                dateRangeStart: '2024-06-01',
+                dateRangeEnd: '2024-12-31',
+                status: 'submitted',
+                priority: 'normal',
+                dateSubmitted: '2025-01-20',
+                dateDue: '2025-02-19',
+                assignedTo: null,
+                isAnonymous: false
+            },
+            {
+                id: 4,
+                trackingNumber: 'FOIA-2025-004',
+                requesterName: 'Anonymous',
+                requesterEmail: 'anonymous@foia-system.gov',
+                requesterPhone: null,
+                requesterOrganization: null,
+                requesterType: 'citizen',
+                requestType: 'inspection_reports',
+                subject: 'Building Inspection Records',
+                description: 'Requesting all building inspection reports for properties on Maple Street.',
+                dateRangeStart: '2024-01-01',
+                dateRangeEnd: '2024-12-31',
+                status: 'acknowledged',
+                priority: 'normal',
+                dateSubmitted: '2025-01-18',
+                dateDue: '2025-02-17',
+                assignedTo: 'Building Department',
+                isAnonymous: true
+            },
+            {
+                id: 5,
+                trackingNumber: 'FOIA-2025-005',
+                requesterName: 'Dr. Emily Rodriguez',
+                requesterEmail: 'e.rodriguez@university.edu',
+                requesterPhone: '(555) 456-7890',
+                requesterOrganization: 'State University',
+                requesterType: 'academic',
+                requestType: 'data_analysis',
+                subject: 'Crime Statistics Data',
+                description: 'Requesting aggregated crime statistics for research purposes, including incident types, locations, and demographics.',
+                dateRangeStart: '2020-01-01',
+                dateRangeEnd: '2024-12-31',
+                status: 'redaction',
+                priority: 'low',
+                dateSubmitted: '2025-01-05',
+                dateDue: '2025-02-04',
+                assignedTo: 'Data Analytics Team',
+                isAnonymous: false
+            },
+            {
+                id: 6,
+                trackingNumber: 'FOIA-2024-089',
+                requesterName: 'Public Watchdog Group',
+                requesterEmail: 'info@watchdog.org',
+                requesterPhone: '(555) 567-8901',
+                requesterOrganization: 'Citizens Watchdog',
+                requesterType: 'advocacy',
+                requestType: 'contract_documents',
+                subject: 'Vendor Contracts',
+                description: 'Requesting all vendor contracts exceeding $100,000 awarded in 2024.',
+                dateRangeStart: '2024-01-01',
+                dateRangeEnd: '2024-12-31',
+                status: 'released',
+                priority: 'normal',
+                dateSubmitted: '2024-12-10',
+                dateDue: '2025-01-09',
+                assignedTo: 'Procurement Department',
+                isAnonymous: false
+            }
+        ];
+    },
+
+    async getFoiaRequests(filters = {}) {
+        await this.delay();
+        let requests = JSON.parse(localStorage.getItem('demo_foia_requests') || '[]');
+
+        // Apply filters
+        if (filters.status && filters.status !== 'all') {
+            requests = requests.filter(r => r.status === filters.status);
+        }
+
+        if (filters.priority && filters.priority !== 'all') {
+            requests = requests.filter(r => r.priority === filters.priority);
+        }
+
+        if (filters.search) {
+            const search = filters.search.toLowerCase();
+            requests = requests.filter(r =>
+                r.trackingNumber?.toLowerCase().includes(search) ||
+                r.subject?.toLowerCase().includes(search) ||
+                r.requesterName?.toLowerCase().includes(search)
+            );
+        }
+
+        return {
+            success: true,
+            requests: requests,
+            total: requests.length,
+            page: filters.page || 1,
+            limit: filters.limit || 50
+        };
+    },
+
+    async getFoiaDashboardStats() {
+        await this.delay();
+        const requests = JSON.parse(localStorage.getItem('demo_foia_requests') || '[]');
+
+        const stats = {
+            total: requests.length,
+            submitted: requests.filter(r => r.status === 'submitted').length,
+            processing: requests.filter(r => r.status === 'processing' || r.status === 'records_gathering').length,
+            pending_review: requests.filter(r => r.status === 'redaction' || r.status === 'legal_review').length,
+            completed: requests.filter(r => r.status === 'released' || r.status === 'closed').length,
+            overdue: requests.filter(r => {
+                const dueDate = new Date(r.dateDue);
+                return dueDate < new Date() && !['released', 'closed', 'denied'].includes(r.status);
+            }).length,
+            avg_response_time: 12.5 // days
+        };
+
+        return {
+            success: true,
+            stats: stats
+        };
+    },
+
+    async getFoiaRequestByTracking(trackingNumber) {
+        await this.delay();
+        const requests = JSON.parse(localStorage.getItem('demo_foia_requests') || '[]');
+        const request = requests.find(r => r.trackingNumber === trackingNumber);
+
+        if (request) {
+            return {
+                success: true,
+                request: request
+            };
+        } else {
+            return {
+                success: false,
+                error: 'Request not found'
+            };
+        }
+    },
+
+    async submitFoiaRequest(requestData) {
+        await this.delay();
+        const requests = JSON.parse(localStorage.getItem('demo_foia_requests') || '[]');
+
+        // Generate tracking number
+        const year = new Date().getFullYear();
+        const nextNum = requests.length + 1;
+        const trackingNumber = `FOIA-${year}-${String(nextNum).padStart(3, '0')}`;
+
+        // Calculate due date (30 days from now)
+        const dateDue = new Date();
+        dateDue.setDate(dateDue.getDate() + 30);
+
+        const newRequest = {
+            id: requests.length + 1,
+            trackingNumber: trackingNumber,
+            ...requestData,
+            status: 'submitted',
+            priority: 'normal',
+            dateSubmitted: new Date().toISOString().split('T')[0],
+            dateDue: dateDue.toISOString().split('T')[0],
+            assignedTo: null
+        };
+
+        requests.push(newRequest);
+        localStorage.setItem('demo_foia_requests', JSON.stringify(requests));
+
+        return {
+            success: true,
+            message: 'FOIA request submitted successfully',
+            request: {
+                id: newRequest.id,
+                trackingNumber: newRequest.trackingNumber,
+                status: newRequest.status,
+                dateSubmitted: newRequest.dateSubmitted,
+                dateDue: newRequest.dateDue
+            }
         };
     },
 

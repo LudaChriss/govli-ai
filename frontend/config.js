@@ -149,6 +149,27 @@ const API_CONFIG = {
         REMOVE: (channelId, userId) => `/api/securemesh/channels/${channelId}/members/${userId}`,
         UPDATE: (channelId, userId) => `/api/securemesh/channels/${channelId}/members/${userId}`
       }
+    },
+    FOIA: {
+      // Citizen/Public endpoints
+      SUBMIT_REQUEST: '/api/foia/requests',
+      TRACK_REQUEST: (trackingNumber) => `/api/foia/requests/${trackingNumber}/status`,
+      AI_ANALYZE: '/api/foia/ai/analyze-request',
+      AI_SUGGEST: '/api/foia/ai/suggest',
+
+      // Admin endpoints
+      ADMIN: {
+        DASHBOARD: '/api/foia/admin/dashboard',
+        REQUESTS: '/api/foia/admin/requests',
+        REQUEST_GET: (id) => `/api/foia/admin/requests/${id}`,
+        REQUEST_UPDATE: (id) => `/api/foia/admin/requests/${id}`,
+        REQUEST_ASSIGN: (id) => `/api/foia/admin/requests/${id}/assign`,
+        DOCUMENTS: '/api/foia/admin/documents',
+        DOCUMENT_ANALYZE: (id) => `/api/foia/admin/documents/${id}/analyze`,
+        DOCUMENT_ANALYSIS: (id) => `/api/foia/admin/documents/${id}/analysis`,
+        DOCUMENT_REDACT: (id) => `/api/foia/admin/documents/${id}/apply-redactions`,
+        BATCH_ANALYZE: '/api/foia/admin/documents/batch-analyze'
+      }
     }
   }
 };
