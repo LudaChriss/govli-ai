@@ -127,7 +127,7 @@ const Document = sequelize.define('Document', {
       fields: ['category']
     },
     {
-      fields: ['created_at']
+      fields: ['createdAt']
     }
   ]
 });

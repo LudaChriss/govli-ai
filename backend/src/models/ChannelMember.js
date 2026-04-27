@@ -336,7 +336,7 @@ const ChannelMember = sequelize.define('ChannelMember', {
       using: 'gin'
     },
     {
-      fields: ['created_at']
+      fields: ['createdAt']
     }
   ]
 });

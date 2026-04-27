@@ -332,7 +332,7 @@ const SecureMessage = sequelize.define('SecureMessage', {
   paranoid: true, // Soft deletes
   indexes: [
     {
-      fields: ['channel_id', 'created_at']
+      fields: ['channel_id', 'createdAt']
     },
     {
       fields: ['sender_id']
@@ -371,7 +371,7 @@ const SecureMessage = sequelize.define('SecureMessage', {
       using: 'gin'
     },
     {
-      fields: ['created_at']
+      fields: ['createdAt']
     }
   ]
 });

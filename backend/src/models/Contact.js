@@ -250,7 +250,7 @@ const Contact = sequelize.define('Contact', {
       fields: ['linked_user_id']
     },
     {
-      fields: ['created_at']
+      fields: ['createdAt']
     },
     {
       // Composite index for name search

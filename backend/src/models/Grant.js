@@ -288,7 +288,7 @@ const Grant = sequelize.define('Grant', {
       fields: ['match_score']
     },
     {
-      fields: ['created_at']
+      fields: ['createdAt']
     }
   ]
 });

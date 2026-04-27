@@ -309,7 +309,7 @@ const Poll = sequelize.define('Poll', {
       fields: ['reference_type', 'reference_id']
     },
     {
-      fields: ['created_at']
+      fields: ['createdAt']
     },
     {
       // Composite index for active public polls

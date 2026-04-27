@@ -194,7 +194,7 @@ const Task = sequelize.define('Task', {
       fields: ['parent_task_id']
     },
     {
-      fields: ['created_at']
+      fields: ['createdAt']
     }
   ]
 });

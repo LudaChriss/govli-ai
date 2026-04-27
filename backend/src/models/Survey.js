@@ -330,7 +330,7 @@ const Survey = sequelize.define('Survey', {
       using: 'gin' // GIN index for array search
     },
     {
-      fields: ['created_at']
+      fields: ['createdAt']
     },
     {
       // Composite index for active public surveys

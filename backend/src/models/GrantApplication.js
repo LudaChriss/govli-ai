@@ -395,7 +395,7 @@ const GrantApplication = sequelize.define('GrantApplication', {
       using: 'gin' // GIN index for array search
     },
     {
-      fields: ['created_at']
+      fields: ['createdAt']
     }
   ]
 });

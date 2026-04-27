@@ -292,7 +292,7 @@ const SecureChannel = sequelize.define('SecureChannel', {
       using: 'gin' // GIN index for array search
     },
     {
-      fields: ['created_at']
+      fields: ['createdAt']
     }
   ]
 });

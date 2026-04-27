@@ -439,7 +439,7 @@ const SecurityAlert = sequelize.define('SecurityAlert', {
       using: 'gin'
     },
     {
-      fields: ['created_at']
+      fields: ['createdAt']
     }
   ]
 });

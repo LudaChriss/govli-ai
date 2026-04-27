@@ -214,7 +214,7 @@ const ContactInteraction = sequelize.define('ContactInteraction', {
       fields: ['requires_followup']
     },
     {
-      fields: ['created_at']
+      fields: ['createdAt']
     }
   ]
 });

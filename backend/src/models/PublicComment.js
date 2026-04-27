@@ -198,7 +198,7 @@ const PublicComment = sequelize.define('PublicComment', {
       fields: ['parent_comment_id']
     },
     {
-      fields: ['created_at']
+      fields: ['createdAt']
     },
     {
       fields: ['commenter_email']

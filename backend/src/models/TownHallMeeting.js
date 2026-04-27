@@ -316,7 +316,7 @@ const TownHallMeeting = sequelize.define('TownHallMeeting', {
       using: 'gin' // GIN index for array search
     },
     {
-      fields: ['created_at']
+      fields: ['createdAt']
     },
     {
       // Composite index for upcoming meetings

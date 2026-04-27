@@ -390,7 +390,7 @@ const SecurityEvent = sequelize.define('SecurityEvent', {
       using: 'gin'
     },
     {
-      fields: ['created_at']
+      fields: ['createdAt']
     }
   ]
 });

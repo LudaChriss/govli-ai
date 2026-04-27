@@ -132,7 +132,7 @@ const Payment = sequelize.define('Payment', {
       fields: ['receipt_number']
     },
     {
-      fields: ['created_at']
+      fields: ['createdAt']
     },
     {
       fields: ['paid_at']

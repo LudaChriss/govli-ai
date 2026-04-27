@@ -101,7 +101,7 @@ const Inspection = sequelize.define('Inspection', {
       fields: ['scheduled_date']
     },
     {
-      fields: ['created_at']
+      fields: ['createdAt']
     }
   ]
 });

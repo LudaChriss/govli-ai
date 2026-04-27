@@ -115,7 +115,7 @@ const Workflow = sequelize.define('Workflow', {
       fields: ['name']
     },
     {
-      fields: ['created_at']
+      fields: ['createdAt']
     }
   ]
 });
