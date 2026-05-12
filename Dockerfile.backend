@@ -1,0 +1,45 @@
+# Multi-stage build to keep final image small.
+FROM node:20-alpine AS deps
+
+# Install build tooling needed for native modules (bcrypt etc.)
+RUN apk add --no-cache python3 make g++
+
+# Install pnpm globally
+RUN npm install -g pnpm@10.33.2
+
+WORKDIR /workspace
+
+# Copy workspace manifest files first for better Docker layer caching.
+# These rarely change relative to source code.
+COPY package.json pnpm-workspace.yaml pnpm-lock.yaml tsconfig.json ./
+
+# Copy package.json for every workspace member that backend transitively depends on.
+# We do this BEFORE copying source so dependency installs are cached.
+COPY backend/package.json ./backend/
+COPY modules/foia/shared/package.json ./modules/foia/shared/
+
+# Install ONLY backend and its workspace dependencies (currently just foia-shared).
+# --filter "govli-ai-backend..." includes backend AND its workspace deps.
+RUN pnpm install --frozen-lockfile --filter "govli-ai-backend..."
+
+# Now copy actual source code
+COPY backend ./backend
+COPY modules/foia/shared ./modules/foia/shared
+
+# Build the shared module so its dist/ exists at runtime
+RUN pnpm --filter @govli/foia-shared run build
+
+# ---- Runtime stage ----
+FROM node:20-alpine AS runtime
+
+WORKDIR /workspace
+
+# Copy entire workspace from deps stage (includes node_modules with symlinks and built shared module)
+COPY --from=deps /workspace ./
+
+# Set working directory to backend for the start command
+WORKDIR /workspace/backend
+
+EXPOSE 3000
+
+CMD ["npm", "start"]

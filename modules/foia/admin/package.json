@@ -19,7 +19,7 @@
     "clsx": "^2.1.0",
     "date-fns": "^3.0.0",
     "recharts": "^2.10.0",
-    "@govli/foia-ui": "file:../govli-ui"
+    "@govli/foia-ui": "workspace:*"
   },
   "devDependencies": {
     "@types/react": "^18.2.0",

@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.24.0",
-    "@govli/foia-shared": "*",
+    "@govli/foia-shared": "workspace:*",
     "bullmq": "^5.70.1",
     "ioredis": "^5.3.2",
     "pg": "^8.11.3"

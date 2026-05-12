@@ -1,0 +1,12 @@
+packages:
+  - "backend"
+  - "modules/foia/shared"
+  - "modules/foia/gateway"
+  - "modules/foia/ai-sidecar"
+  - "modules/foia/services/*"
+  - "modules/foia/ai-features/*"
+  - "modules/foia/portal"
+  - "modules/foia/admin"
+  - "modules/foia/govli-ui"
+  - "modules/foia/workers"
+  - "modules/foia/migration/*"

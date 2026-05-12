@@ -1,0 +1,56 @@
+# Dependencies (will be installed inside container)
+**/node_modules
+.pnpm-store
+
+# Version control
+.git
+.gitignore
+
+# Build artifacts
+**/dist
+**/build
+**/.next
+**/.cache
+
+# Logs and temp
+**/*.log
+npm-debug.log*
+.npm
+.yarn
+
+# Editor and OS files
+.vscode
+.idea
+**/.DS_Store
+**/*.swp
+
+# Tests and docs (not needed at runtime)
+**/coverage
+**/test
+**/tests
+**/__tests__
+**/*.test.js
+**/*.test.ts
+**/*.spec.js
+**/*.spec.ts
+
+# Skipped tooling artifacts
+**/.ignored
+**/.cache
+**/tmp
+**/temp
+
+# Local environment files (set via Render/docker-compose env)
+**/.env
+**/.env.local
+**/.env.*.local
+
+# Module directories not needed by backend
+modules/foia/admin/dist
+modules/foia/portal/dist
+modules/foia/admin/build
+modules/foia/portal/build
+
+# Frontend (separately deployed to Vercel)
+frontend
+public

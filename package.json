@@ -3,6 +3,7 @@
   "version": "2.0.0",
   "private": true,
   "workspaces": [
+    "backend",
     "modules/foia/shared",
     "modules/foia/gateway",
     "modules/foia/ai-sidecar",
@@ -14,6 +15,12 @@
     "modules/foia/workers",
     "modules/foia/migration/*"
   ],
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "bcrypt",
+      "tesseract.js"
+    ]
+  },
   "scripts": {
     "foia:dev": "docker-compose up -d && echo FOIA services ready",
     "foia:verify": "tsc --noEmit -p modules/foia/tsconfig.json && tsc --noEmit -p modules/foia/admin/tsconfig.json && tsc --noEmit -p modules/foia/portal/tsconfig.json",

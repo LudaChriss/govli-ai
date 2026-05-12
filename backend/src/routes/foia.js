@@ -6,6 +6,7 @@ const { authMiddleware, requireRole, optionalAuth } = require('../middleware/aut
 const { auditSensitiveOperation } = require('../middleware/auditLog');
 const FoiaService = require('../services/foiaService');
 const FoiaAIService = require('../services/foiaAIService');
+const { createFoiaAIClient } = require('@govli/foia-shared');
 const FoiaDocumentService = require('../services/foiaDocumentService');
 
 // ============================================================================

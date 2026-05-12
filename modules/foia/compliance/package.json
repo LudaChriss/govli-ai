@@ -16,7 +16,7 @@
     "ioredis": "^5.3.2",
     "cors": "^2.8.5",
     "jsonwebtoken": "^9.0.2",
-    "@govli/foia-shared": "file:../shared"
+    "@govli/foia-shared": "workspace:*"
   },
   "devDependencies": {
     "@types/express": "^4.17.21",
